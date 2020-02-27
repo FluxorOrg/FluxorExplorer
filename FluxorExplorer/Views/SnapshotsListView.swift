@@ -6,47 +6,45 @@
 //  Copyright © 2019 MoGee. All rights reserved.
 //
 
+import Fluxor
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 import SwiftUI
 
 struct SnapshotsListView {
-    var model = Model()
-    var didSelect: ((FluxorExplorerSnapshot) -> Void)?
-    @State var peerID: MCPeerID?
+    @EnvironmentObject var windowStore: Store<WindowState>
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State var snapshots = [FluxorExplorerSnapshot]()
-    @State var selectedSnapshot: FluxorExplorerSnapshot?
-}
 
-extension SnapshotsListView {
-    class Model: ViewModel {}
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .medium
+        return dateFormatter
+    }()
+
+    var timeBackgroundColor: Color {
+        Color(self.colorScheme == .dark ? .darkGray : .init(white: 0.9, alpha: 1))
+    }
 }
 
 extension SnapshotsListView: View {
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(snapshots, id: \.date) { snapshot in
-                    NavigationLink(destination: SnapshotView(snapshot: snapshot)) {
-                        VStack {
-                            Text(snapshot.actionData.name)
-                            Text(snapshot.date.description)
-                        }
+        List {
+            ForEach(snapshots, id: \.date) { snapshot in
+                NavigationLink(destination: SnapshotView(snapshot: snapshot)) {
+                    HStack {
+                        Text(snapshot.actionData.name)
+                        Spacer()
+                        Text(self.dateFormatter.string(from: snapshot.date))
+                            .padding(6)
+                            .background(self.timeBackgroundColor)
+                            .cornerRadius(6)
                     }
                 }
             }
-            .navigationBarTitle("Snapshots")
-            .onReceive(model.store.select {
-                Array($0.snapshotsByPeer.keys).first
-            }, perform: {
-                self.peerID = $0
-            })
-            .onReceive(model.store.select {
-                guard let localPeerID = self.peerID else { return [] }
-                return $0.snapshotsByPeer[localPeerID] ?? []
-            }, perform: {
-                self.snapshots = $0
-            })
         }
+        .navigationBarTitle("Snapshots")
+        .onReceive(windowStore.select(Selectors.getSnapshots), perform: { self.snapshots = $0 })
     }
 }

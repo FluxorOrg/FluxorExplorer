@@ -6,56 +6,59 @@
 //  Copyright © 2019 MoGee. All rights reserved.
 //
 
+import Fluxor
 import FluxorExplorerSnapshot
 import SwiftUI
 
 struct SnapshotView {
     var snapshot: FluxorExplorerSnapshot
-    @State private var selectorIndex = 0
+
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .long
+        return dateFormatter
+    }()
 }
 
 extension SnapshotView: View {
     var body: some View {
-        VStack {
-            Picker("", selection: $selectorIndex) {
-                ForEach(0 ..< SnapshotDataType.allCases.count) { index in
-                    Text(SnapshotDataType.allCases[index].title).tag(index)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("Time:")
+                    .font(.headline)
+                Text(dateFormatter.string(from: snapshot.date))
+                Divider()
+                    .padding(.vertical)
+
+                if snapshot.actionData.payload != nil {
+                    Text("Payload")
+                        .font(.headline)
+                    DataStructureView(dataStructure: snapshot.actionData.payload!)
+                        .padding(.top)
+                    Divider()
+                        .padding(.vertical)
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            Spacer()
-            if selectorIndex == SnapshotDataType.action.rawValue {
-                Text(snapshot.actionData.name)
-                Text(actionPayloadJSON)
-            } else if selectorIndex == SnapshotDataType.state.rawValue {
+
                 Text("State")
-            } else if selectorIndex == SnapshotDataType.diff.rawValue {
-                Text("Diff")
+                    .font(.headline)
+                DataStructureView(dataStructure: snapshot.newState)
+                    .padding(.top)
+                Spacer()
             }
-            Spacer()
         }
-    }
-    
-    var actionPayloadJSON: String {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        return String(data: try! encoder.encode(snapshot.actionData.payload), encoding: .utf8)!
+        .navigationBarTitle(snapshot.actionData.name)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .padding()
     }
 }
 
-enum SnapshotDataType: Int, CaseIterable {
-    case action
-    case state
-    case diff
+struct SnapshotView_Previews: PreviewProvider {
+    static var previews: some View {
+        SnapshotView(snapshot: FluxorExplorerSnapshot(action: TestAction(increment: 1295), oldState: ["counter": 42], newState: ["counter": 1337]))
+    }
 
-    var title: String {
-        switch self {
-        case .action:
-            return "Action"
-        case .state:
-            return "State"
-        case .diff:
-            return "Diff"
-        }
+    struct TestAction: Action {
+        let increment: Int
     }
 }

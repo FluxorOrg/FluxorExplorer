@@ -10,7 +10,19 @@ import Fluxor
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
+struct PeerConnectedAction: Action {
+    let peer: MCPeerID
+}
+
+struct PeerDisconnectedAction: Action {
+    let peer: MCPeerID
+}
+
 struct DidReceiveSnapshotAction: Action {
-    let peerID: MCPeerID
+    let peer: MCPeerID
     let snapshot: FluxorExplorerSnapshot
+}
+
+struct SelectPeerAction: Action {
+    let peer: MCPeerID
 }
