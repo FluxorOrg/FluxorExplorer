@@ -55,7 +55,9 @@ extension SnapshotView: View {
 
 struct SnapshotView_Previews: PreviewProvider {
     static var previews: some View {
-        SnapshotView(snapshot: FluxorExplorerSnapshot(action: TestAction(increment: 1295), oldState: ["counter": 42], newState: ["counter": 1337]))
+        SnapshotView(snapshot: FluxorExplorerSnapshot(action: TestAction(increment: 1295),
+                                                      oldState: ["counter": 42],
+                                                      newState: ["counter": 1337]))
     }
 
     struct TestAction: Action {

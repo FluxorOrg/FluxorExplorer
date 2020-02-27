@@ -21,4 +21,5 @@ struct AppEnvironment {
     }()
 }
 
+// swiftlint:disable:next identifier_name
 var Current = AppEnvironment()

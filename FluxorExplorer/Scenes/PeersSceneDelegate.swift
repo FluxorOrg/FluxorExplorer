@@ -13,7 +13,9 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var sessionHandler = SessionHandler()
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene,
+               willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
         let peersView = PeersView()
             .environmentObject(Current.store)
         if let windowScene = scene as? UIWindowScene {

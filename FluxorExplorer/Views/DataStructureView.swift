@@ -17,7 +17,9 @@ struct DataStructureView: View {
             .font(.custom("Lucida Console", size: 16))
     }
 
-    private func textify(_ dictionary: [String: AnyCodable], indentation: Indentation, startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
+    private func textify(_ dictionary: [String: AnyCodable],
+                         indentation: Indentation,
+                         startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
         let subindention: Indentation
         let endBraceIndentation: Indentation
         if startBraceIndentation.amount == 0 {
@@ -31,7 +33,9 @@ struct DataStructureView: View {
             .sorted { $0.key < $1.key }
             .compactMap { keyValue -> Text in
                 let (key, value) = keyValue
-                return Text(subindention.string) + createKeyText(key) + textify(value: value.value, indentation: indentation, afterColon: true)
+                return Text(subindention.string)
+                    + createKeyText(key)
+                    + textify(value: value.value, indentation: indentation, afterColon: true)
             }
         let initialText = mappedDictionary.first ?? Text("")
         let formattedDictionary = mappedDictionary.dropFirst().reduce(initialText) { $0 + createNormalText(",\n") + $1 }
@@ -40,8 +44,12 @@ struct DataStructureView: View {
             + createNormalText("\n\(endBraceIndentation.string)}")
     }
 
-    private func textify(_ dictionary: [String: Any], indentation: Indentation, startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
-        return textify(dictionary.mapValues(AnyCodable.init), indentation: indentation, startBraceIndentation: startBraceIndentation)
+    private func textify(_ dictionary: [String: Any],
+                         indentation: Indentation,
+                         startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
+        return textify(dictionary.mapValues(AnyCodable.init),
+                       indentation: indentation,
+                       startBraceIndentation: startBraceIndentation)
     }
 
     private func textify(_ array: [Any], indentation: Indentation) -> Text {

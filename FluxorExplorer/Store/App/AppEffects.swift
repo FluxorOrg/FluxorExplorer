@@ -30,7 +30,7 @@ class AppEffects: Effects {
                                                                    errorHandler: nil)
             })
     )
-    
+
     lazy var relayReceivedSnapshot = createEffect(
         actions
             .ofType(DidReceiveSnapshotAction.self)
