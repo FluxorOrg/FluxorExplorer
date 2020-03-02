@@ -734,7 +734,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		5A6A837623AADD7E00617693 /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:MortenGregersen/FluxorExplorerSnapshot.git";
+			repositoryURL = "https://github.com/MortenGregersen/FluxorExplorerSnapshot.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -742,7 +742,7 @@
 		};
 		5A6A837923AADD9D00617693 /* XCRemoteSwiftPackageReference "Fluxor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:MortenGregersen/Fluxor.git";
+			repositoryURL = "https://github.com/MortenGregersen/Fluxor.git";
 			requirement = {
 				branch = master;
 				kind = branch;
