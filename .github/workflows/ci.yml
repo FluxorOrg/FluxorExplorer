@@ -17,10 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test
-      run: |
-        # Workaround for Xcode 11: https://github.com/webfactory/ssh-agent/issues/4#issuecomment-537038816
-        for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
-        xcodebuild clean test -project FluxorExplorer.xcodeproj -scheme FluxorExplorer -resultBundlePath coverage/result.xcresult
+      run: xcodebuild clean test -project FluxorExplorer.xcodeproj -scheme FluxorExplorer -resultBundlePath coverage/result.xcresult
     - name: Export coverage
       run: |
         xcrun xccov view --report --json coverage/result.xcresult > cov.json
