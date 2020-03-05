@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test
-      run: xcodebuild clean test -project FluxorExplorer.xcodeproj -scheme FluxorExplorer -resultBundlePath coverage/result.xcresult
+      run: xcodebuild clean test -project FluxorExplorer.xcodeproj -scheme FluxorExplorer -resultBundlePath coverage/result.xcresult CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
     - name: Export coverage
       run: |
         xcrun xccov view --report --json coverage/result.xcresult > cov.json
