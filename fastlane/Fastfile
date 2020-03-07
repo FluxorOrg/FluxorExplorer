@@ -1,0 +1,15 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Test application"
+  lane :test do
+    build_app(catalyst_platform: "ios")
+    run_tests
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    build_app
+    upload_to_testflight
+  end
+end
