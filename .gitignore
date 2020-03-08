@@ -1,1 +1,10 @@
 xcuserdata
+
+FluxorExplorer.app
+FluxorExplorer.app.dSYM.zip
+FluxorExplorer.ipa
+
+fastlane/report.xml
+fastlane/test_output/report.html
+fastlane/test_output/report.junit
+
