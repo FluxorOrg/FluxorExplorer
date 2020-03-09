@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test
-      run: bundle exec fastlane test
+      run: fastlane test
     - name: Export coverage
       run: |
         xcrun xccov view --report --json fastlane/test_output/FluxorExplorer.xcresult > cov.json
