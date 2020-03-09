@@ -1,1 +1,2 @@
 code_coverage(true)
+result_bundle(true)
