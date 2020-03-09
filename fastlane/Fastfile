@@ -1,15 +1,18 @@
-default_platform(:ios)
+desc "Test application"
+lane :test do
+  run_tests
+end
 
-platform :ios do
-  desc "Test application"
-  lane :test do
-    build_app(catalyst_platform: "ios")
-    run_tests
-  end
-
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
-    build_app
-    upload_to_testflight
-  end
+desc "Push a new beta build to TestFlight"
+lane :beta do
+  gym(
+    export_method: 'app-store',
+    catalyst_platform: 'macos',
+    installer_cert_name: '3rd Party Mac Developer Installer: Morten Gregersen (R7YA4RGA8U)'
+  )
+  gym(
+    export_method: 'app-store',
+    catalyst_platform: 'ios'
+  )
+  upload_to_testflight
 end
