@@ -17,10 +17,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test
-      run: xcodebuild clean test -project FluxorExplorer.xcodeproj -scheme FluxorExplorer -resultBundlePath coverage/result.xcresult CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      run: bundle exec fastlane test
     - name: Export coverage
       run: |
-        xcrun xccov view --report --json coverage/result.xcresult > cov.json
+        xcrun xccov view --report --json fastlane/test_output/FluxorExplorer.xcresult > cov.json
         git clone https://github.com/trax-retail/xccov2lcov.git
         cd xccov2lcov
         swift run xccov2lcov ../cov.json > ../coverage.lcov
