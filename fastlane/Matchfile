@@ -1,2 +1,2 @@
-storage_mode("git")
-type("development")
+storage_mode('git')
+type('development')

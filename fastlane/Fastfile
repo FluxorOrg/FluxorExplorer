@@ -1,18 +1,11 @@
-desc "Test application"
+desc 'Test application'
 lane :test do
   run_tests
 end
 
-desc "Push a new beta build to TestFlight"
+desc 'Push a new beta build to TestFlight'
 lane :beta do
-  gym(
-    export_method: 'app-store',
-    catalyst_platform: 'macos',
-    installer_cert_name: '3rd Party Mac Developer Installer: Morten Gregersen (R7YA4RGA8U)'
-  )
-  gym(
-    export_method: 'app-store',
-    catalyst_platform: 'ios'
-  )
-  upload_to_testflight
+  gym(catalyst_platform: 'macos')
+  gym(catalyst_platform: 'ios')
+  #upload_to_testflight
 end
