@@ -1,5 +1,3 @@
 scheme('FluxorExplorer')
 output_directory('./')
-export_options({
-  method: 'app-store'
-})
+export_options({ method: 'app-store' })
