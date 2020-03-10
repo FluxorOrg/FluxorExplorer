@@ -7,5 +7,5 @@ desc 'Push a new beta build to TestFlight'
 lane :beta do
   gym(catalyst_platform: 'macos')
   gym(catalyst_platform: 'ios')
-  #upload_to_testflight
+  upload_to_testflight
 end
