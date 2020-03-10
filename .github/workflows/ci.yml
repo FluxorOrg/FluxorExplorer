@@ -16,6 +16,8 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
+    - name: Update fastlane
+      run: bundle install
     - name: Test
       run: bundle exec fastlane test
     - name: Export coverage
