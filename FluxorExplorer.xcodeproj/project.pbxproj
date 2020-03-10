@@ -574,7 +574,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
-				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FluxorExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,7 +600,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
-				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FluxorExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
