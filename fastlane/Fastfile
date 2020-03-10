@@ -1,0 +1,11 @@
+desc 'Test application'
+lane :test do
+  run_tests
+end
+
+desc 'Push a new beta build to TestFlight'
+lane :beta do
+  gym(catalyst_platform: 'macos')
+  gym(catalyst_platform: 'ios')
+  upload_to_testflight
+end
