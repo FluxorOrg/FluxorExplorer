@@ -16,8 +16,10 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.3.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
+    - name: Update fastlane
+      run: bundle install
     - name: Test
-      run: fastlane test
+      run: bundle exec fastlane test
     - name: Export coverage
       run: |
         xcrun xccov view --report --json fastlane/test_output/FluxorExplorer.xcresult > cov.json
