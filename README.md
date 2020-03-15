@@ -1,6 +1,9 @@
-# FluxorExplorer
-
-**A macOS and iPadOS app for exploring dispatched `Action`s and state changes in apps using [Fluxor](https://github.com/MortenGregersen/Fluxor).**
+<div align="center">
+	<img src="Assets/MacIcon-128.png">
+	<h1>FluxorExplorer</h1>
+	<p style="font-weight: bold">A macOS and iPadOS app for exploring dispatched `Action`s and state changes in apps using <a href="https://github.com/MortenGregersen/Fluxor">Fluxor</a>.
+	</p>
+</div>
 
 ![Platforms](https://img.shields.io/badge/platforms-Mac+iOS-brightgreen.svg)
 ![Swift version](https://img.shields.io/badge/Swift-5.1-brightgreen.svg)
