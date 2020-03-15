@@ -5,6 +5,7 @@ end
 
 desc 'Push a new beta build to TestFlight'
 lane :beta do
+  sync_code_signing(type: 'appstore')
   increment_build_number(build_number: number_of_commits)
   gym(catalyst_platform: 'macos')
   gym(catalyst_platform: 'ios')
