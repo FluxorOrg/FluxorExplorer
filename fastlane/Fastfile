@@ -5,7 +5,9 @@ end
 
 desc 'Push a new beta build to TestFlight'
 lane :beta do
+  increment_build_number(build_number: number_of_commits)
   gym(catalyst_platform: 'macos')
   gym(catalyst_platform: 'ios')
   upload_to_testflight
+  increment_build_number(build_number: 1)
 end
