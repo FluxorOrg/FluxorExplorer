@@ -18,6 +18,8 @@ jobs:
       GYM_INSTALLER_CERT_NAME: ${{ secrets.GYM_INSTALLER_CERT_NAME }}
       MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
       MATCH_USERNAME: ${{ secrets.MATCH_USERNAME }}
+      GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}:  
     steps:
     - uses: actions/checkout@v2
     - name: Update fastlane
