@@ -6,10 +6,10 @@ end
 desc 'Push a new beta build to TestFlight'
 lane :beta do
   sync_code_signing(type: 'appstore',
+                    readonly: true,
                     git_url: ENV['MATCH_GIT_URL'],
                     username: ENV['MATCH_USERNAME'],
                     git_basic_authorization: ENV['GITHUB_BASIC_AUTH'],
-                    readonly: true,
                     verbose: true
                    )
   increment_build_number(build_number: number_of_commits)
