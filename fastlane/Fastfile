@@ -9,6 +9,7 @@ lane :beta do
                     git_url: ENV['MATCH_GIT_URL'],
                     username: ENV['MATCH_USERNAME'],
                     git_basic_authorization: ENV['GITHUB_BASIC_AUTH'],
+                    readonly: true,
                     verbose: true
                    )
   increment_build_number(build_number: number_of_commits)
