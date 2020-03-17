@@ -22,12 +22,6 @@ jobs:
       SSH_AUTH_SOCK: /tmp/ssh_agent.sock
     steps:
     - uses: actions/checkout@v2
-    - name: Setup SSH Keys and known_hosts
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-        ssh-add - <<< " $"
     - name: Update fastlane
       run: bundle install
     - name: Deploy
