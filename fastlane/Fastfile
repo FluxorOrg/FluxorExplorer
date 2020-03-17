@@ -16,14 +16,13 @@ lane :beta do
     type: 'appstore',
     readonly: true,
     git_url: ENV['MATCH_GIT_URL'],
-    username: ENV['MATCH_USERNAME'],
     git_basic_authorization: ENV['GITHUB_BASIC_AUTH'],
     keychain_name: 'FluxorExplorerKeychain',
     keychain_password: 'kapow',
     verbose: true
   )
   increment_build_number(build_number: number_of_commits)
-  gym(catalyst_platform: 'macos')
+  #gym(catalyst_platform: 'macos')
   gym(catalyst_platform: 'ios')
   upload_to_testflight
   increment_build_number(build_number: 1)
