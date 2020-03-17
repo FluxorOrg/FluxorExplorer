@@ -5,13 +5,23 @@ end
 
 desc 'Push a new beta build to TestFlight'
 lane :beta do
-  sync_code_signing(type: 'appstore',
-                    readonly: true,
-                    git_url: ENV['MATCH_GIT_URL'],
-                    username: ENV['MATCH_USERNAME'],
-                    git_basic_authorization: ENV['GITHUB_BASIC_AUTH'],
-                    verbose: true
-                   )
+  create_keychain(
+    name: 'FluxorExplorerKeychain',
+    password: 'kapow',
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600
+  )
+  sync_code_signing(
+    type: 'appstore',
+    readonly: true,
+    git_url: ENV['MATCH_GIT_URL'],
+    username: ENV['MATCH_USERNAME'],
+    git_basic_authorization: ENV['GITHUB_BASIC_AUTH'],
+    keychain_name: 'FluxorExplorerKeychain',
+    keychain_password: 'kapow',
+    verbose: true
+  )
   increment_build_number(build_number: number_of_commits)
   gym(catalyst_platform: 'macos')
   gym(catalyst_platform: 'ios')
