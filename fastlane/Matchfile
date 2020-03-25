@@ -1,2 +1,0 @@
-storage_mode('git')
-type('development')

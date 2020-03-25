@@ -69,7 +69,7 @@
 		5A2402B6237B5E3600AD7007 /* FluxorExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2402BA237B5E3600AD7007 /* FluxorExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorExplorerUITests.swift; sourceTree = "<group>"; };
 		5A2402BC237B5E3600AD7007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A2402C8237B5E5000AD7007 /* FluxorExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorer.entitlements; sourceTree = "<group>"; };
+		5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorerRelease.entitlements; sourceTree = "<group>"; };
 		5A32DA9323D11C2700470638 /* PeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersView.swift; sourceTree = "<group>"; };
 		5A32DA9523D4B89D00470638 /* PeersSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSceneDelegate.swift; sourceTree = "<group>"; };
 		5A3FF57A23CBBAB60010B160 /* DataStructureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureView.swift; sourceTree = "<group>"; };
@@ -84,8 +84,7 @@
 		5A6A838523AC09EE00617693 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		5A80D84823D4ED8A00940802 /* AppEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEffects.swift; sourceTree = "<group>"; };
 		5A80D84D23D5089F00940802 /* SceneActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneActivity.swift; sourceTree = "<group>"; };
-		5AC12D732411B4FE002A1F6C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
-		5AC12D752416F809002A1F6C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorerDebug.entitlements; sourceTree = "<group>"; };
 		5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsListView.swift; sourceTree = "<group>"; };
 		5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,8 +131,6 @@
 				5A2402AE237B5E3600AD7007 /* FluxorExplorerTests */,
 				5A2402B9237B5E3600AD7007 /* FluxorExplorerUITests */,
 				5A240296237B5E3100AD7007 /* Products */,
-				5AC12D732411B4FE002A1F6C /* fastlane */,
-				5AC12D752416F809002A1F6C /* Gemfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,7 +151,8 @@
 				5A80D84A23D506DE00940802 /* Scenes */,
 				5AF6DA2223AEC9540039D3B2 /* Views */,
 				5A6A838023ABB9B500617693 /* Store */,
-				5A2402C8237B5E5000AD7007 /* FluxorExplorer.entitlements */,
+				5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */,
+				5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */,
 				5A240298237B5E3100AD7007 /* AppDelegate.swift */,
 				5A6A837C23ABB76B00617693 /* AppEnvironment.swift */,
 				5A6A837E23ABB91000617693 /* SessionHandler.swift */,
@@ -568,12 +566,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorerDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FluxorExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,8 +581,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development dk.MoGee.Explorer";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac Development";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -594,7 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorerRelease.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -608,7 +607,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore dk.MoGee.Explorer";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS Distribution";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac Distribution";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,7 +630,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -646,8 +645,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -656,8 +656,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FluxorExplorer.app/FluxorExplorer";
@@ -668,8 +670,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -677,8 +680,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS UI Tests";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac UI Tests";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FluxorExplorer;
@@ -689,8 +694,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,8 +704,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS UI Tests";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac UI Tests";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FluxorExplorer;
