@@ -1,10 +1,8 @@
-//
-//  FluxorExplorerTests.swift
-//  FluxorExplorerTests
-//
-//  Created by Morten Bjerg Gregersen on 12/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorExplorerTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 @testable import FluxorExplorer
 import XCTest

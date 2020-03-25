@@ -1,13 +1,10 @@
-//
-//  Selectors.swift
-//  FluxorExplorer
-//
-//  Created by Morten Bjerg Gregersen on 14/01/2020.
-//  Copyright © 2020 MoGee. All rights reserved.
-//
+/**
+ * FluxorExplorer
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Fluxor
-import FluxorExplorerSnapshot
 
 struct Selectors {
     static let getPeersState = createRootSelector(keyPath: \AppState.peers)
