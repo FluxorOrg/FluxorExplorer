@@ -11,6 +11,16 @@
 	<a href="https://twitter.com/mortengregersen">
 		<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
 	</a>
+	<br />
+	<a href="https://app.bitrise.io/app/095a1e208c21c464">
+		<img src="https://app.bitrise.io/app/095a1e208c21c464/status.svg?token=UuyObMFZ8ONAV36dgWmkAQ&branch=master" alt="Build Status" />
+	</a>
+	<a href="https://codeclimate.com/github/MortenGregersen/FluxorExplorer/maintainability">
+		<img src="https://api.codeclimate.com/v1/badges/e91073b6908a177fa1e6/maintainability" alt="Maintainability" />
+	</a>
+	<a href="https://codeclimate.com/github/MortenGregersen/FluxorExplorer/test_coverage">
+		<img src="https://api.codeclimate.com/v1/badges/e91073b6908a177fa1e6/test_coverage" alt="Test Coverage" />
+	</a>
 </div>
 
 ![](https://github.com/MortenGregersen/FluxorExplorer/blob/master/Assets/FluxorExplorer.png)
