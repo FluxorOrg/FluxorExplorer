@@ -151,14 +151,14 @@
 				5A80D84A23D506DE00940802 /* Scenes */,
 				5AF6DA2223AEC9540039D3B2 /* Views */,
 				5A6A838023ABB9B500617693 /* Store */,
-				5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */,
-				5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */,
 				5A240298237B5E3100AD7007 /* AppDelegate.swift */,
 				5A6A837C23ABB76B00617693 /* AppEnvironment.swift */,
 				5A6A837E23ABB91000617693 /* SessionHandler.swift */,
 				5A24029E237B5E3500AD7007 /* Assets.xcassets */,
 				5A2402A3237B5E3500AD7007 /* LaunchScreen.storyboard */,
 				5A2402A6237B5E3500AD7007 /* Info.plist */,
+				5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */,
+				5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */,
 				5A2402A0237B5E3500AD7007 /* Preview Content */,
 			);
 			path = FluxorExplorer;
