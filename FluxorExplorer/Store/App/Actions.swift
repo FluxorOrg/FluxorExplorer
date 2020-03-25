@@ -1,14 +1,12 @@
-//
-//  Actions.swift
-//  FluxorExplorer
-//
-//  Created by Morten Bjerg Gregersen on 19/12/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorExplorer
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Fluxor
 import FluxorExplorerSnapshot
-import MultipeerConnectivity
+import MultipeerConnectivity.MCPeerID
 
 struct PeerConnectedAction: Action {
     let peer: MCPeerID

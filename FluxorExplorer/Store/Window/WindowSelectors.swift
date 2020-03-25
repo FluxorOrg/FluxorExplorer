@@ -1,13 +1,10 @@
-//
-//  WindowSelectors.swift
-//  FluxorExplorer
-//
-//  Created by Morten Bjerg Gregersen on 21/01/2020.
-//  Copyright © 2020 MoGee. All rights reserved.
-//
+/**
+ * FluxorExplorer
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Fluxor
-import FluxorExplorerSnapshot
 
 extension Selectors {
     static let getSnapshotsState = createRootSelector(keyPath: \WindowState.snapshots)

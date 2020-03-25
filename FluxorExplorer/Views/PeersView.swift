@@ -1,13 +1,11 @@
-//
-//  PeersView.swift
-//  FluxorExplorer
-//
-//  Created by Morten Bjerg Gregersen on 16/01/2020.
-//  Copyright © 2020 MoGee. All rights reserved.
-//
+/**
+ * FluxorExplorer
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Fluxor
-import MultipeerConnectivity
+import MultipeerConnectivity.MCPeerID
 import SwiftUI
 
 struct PeersView {
