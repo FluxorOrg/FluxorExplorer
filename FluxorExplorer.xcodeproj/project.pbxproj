@@ -645,8 +645,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerTests/Info.plist;
@@ -670,9 +670,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -682,8 +682,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS UI Tests";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac UI Tests";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FluxorExplorer;
@@ -694,9 +694,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				INFOPLIST_FILE = FluxorExplorerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,8 +706,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.ExplorerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS UI Tests";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac UI Tests";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FluxorExplorer;
