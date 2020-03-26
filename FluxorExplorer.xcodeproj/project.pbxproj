@@ -33,6 +33,7 @@
 		5A6A838623AC09EE00617693 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A838523AC09EE00617693 /* Actions.swift */; };
 		5A80D84923D4ED8A00940802 /* AppEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A80D84823D4ED8A00940802 /* AppEffects.swift */; };
 		5A80D84E23D5089F00940802 /* SceneActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A80D84D23D5089F00940802 /* SceneActivity.swift */; };
+		5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A903187242D697F00E18C57 /* AppReducersTests.swift */; };
 		5AE8AE60242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8AE5F242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift */; };
 		5AF6DA2423AEC9610039D3B2 /* SnapshotsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */; };
 		5AF6DA2623AECC420039D3B2 /* SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */; };
@@ -87,6 +88,7 @@
 		5A6A838523AC09EE00617693 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		5A80D84823D4ED8A00940802 /* AppEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEffects.swift; sourceTree = "<group>"; };
 		5A80D84D23D5089F00940802 /* SceneActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneActivity.swift; sourceTree = "<group>"; };
+		5A903187242D697F00E18C57 /* AppReducersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducersTests.swift; sourceTree = "<group>"; };
 		5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorerDebug.entitlements; sourceTree = "<group>"; };
 		5AE8AE5F242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPeerIDExtensionsTests.swift; sourceTree = "<group>"; };
 		5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsListView.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		5AE8AE5E242C1B600007FD9A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5A903187242D697F00E18C57 /* AppReducersTests.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */,
 				5A2402B0237B5E3600AD7007 /* FluxorExplorerTests.swift in Sources */,
 				5AE8AE60242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift in Sources */,
 			);

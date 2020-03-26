@@ -6,13 +6,11 @@
 
 import Fluxor
 
-let appReducer = createReducer { (state: inout AppState, action) -> Void in
-    switch action {
-    case let action as PeerConnectedAction:
+let appReducer = createReducer(
+    reduceOn(PeerConnectedAction.self) { (state: inout AppState, action) -> Void in
         state.peers.peers.append(action.peer)
-    case let action as PeerDisconnectedAction:
+    },
+    reduceOn(PeerDisconnectedAction.self) { (state: inout AppState, action) -> Void in
         state.peers.peers.removeAll(where: { $0 == action.peer })
-    default:
-        ()
     }
-}
+)
