@@ -10,7 +10,7 @@ import XCTest
 
 class AppReducersTests: XCTestCase {
     let peer = MCPeerID(displayName: "Some id")
-    
+
     func testReceivingPeerConnected() {
         // Given
         var state = AppState()
@@ -21,7 +21,7 @@ class AppReducersTests: XCTestCase {
         XCTAssertEqual(state.peers.peers.count, 1)
         XCTAssertEqual(state.peers.peers[0], peer)
     }
-    
+
     func testReceivingPeerDisconnected() {
         // Given
         var state = AppState(peers: PeersState(peers: [peer]))
