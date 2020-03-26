@@ -6,8 +6,7 @@
 
 import Fluxor
 
-let appReducer = createReducer { state, action -> AppState in
-    var state = state
+let appReducer = createReducer { (state: inout AppState, action) -> Void in
     switch action {
     case let action as PeerConnectedAction:
         state.peers.peers.append(action.peer)
@@ -16,5 +15,4 @@ let appReducer = createReducer { state, action -> AppState in
     default:
         ()
     }
-    return state
 }
