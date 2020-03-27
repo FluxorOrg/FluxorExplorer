@@ -6,8 +6,7 @@
 
 import Fluxor
 
-let windowReducer = createReducer { state, action -> WindowState in
-    var state = state
+let windowReducer = createReducer { (state: inout WindowState, action) -> Void in
     switch action {
     case let action as DidReceiveSnapshotAction:
         var snapshots = state.snapshots.snapshots
@@ -16,5 +15,4 @@ let windowReducer = createReducer { state, action -> WindowState in
     default:
         ()
     }
-    return state
 }

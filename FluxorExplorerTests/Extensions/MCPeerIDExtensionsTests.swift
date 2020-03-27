@@ -8,7 +8,7 @@ import FluxorExplorer
 import MultipeerConnectivity.MCPeerID
 import XCTest
 
-class AppStateTests: XCTestCase {
+class MCPeerIDExtensionsTests: XCTestCase {
     func testPeerIDEncodable() throws {
         let peerID = MCPeerID(displayName: "Some peer")
         let jsonEncoder = JSONEncoder()
@@ -16,7 +16,7 @@ class AppStateTests: XCTestCase {
         XCTAssertEqual(String(data: json, encoding: .utf8), #"{"displayName":"Some peer"}"#)
     }
 
-    func testPeerIDComparable() throws {
+    func testPeerIDComparable() {
         let peerID1 = MCPeerID(displayName: "Some peer")
         let peerID2 = MCPeerID(displayName: "Another peer")
         let peerID3 = MCPeerID(displayName: "Third peer")
