@@ -1,10 +1,10 @@
 <div align="center">
-	<img src="Assets/MacIcon-256.png">
+	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/MacIcon-256.png">
 	<h1>FluxorExplorer</h1>
-	<p style="font-weight: bold">A macOS and iPadOS app for debugging apps using <a href="https://github.com/MortenGregersen/Fluxor">Fluxor</a>.
+	<p style="font-weight: bold">A macOS and iPadOS app for debugging apps using <a href="https://github.com/FluxorOrg/Fluxor">Fluxor</a>.
 	</p>
 	<img src="https://img.shields.io/badge/platforms-Mac+iOS-brightgreen.svg" alt="Platform: Mac+iOS">
-	<img src="https://img.shields.io/badge/Swift-5.1-brightgreen.svg" alt="Swift 5.1">
+	<img src="https://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Swift 5.2">
 	<a href="https://swift.org/package-manager">
 		<img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="Swift Package Manager compatible">
 	</a>
@@ -15,21 +15,21 @@
 	<a href="https://app.bitrise.io/app/095a1e208c21c464">
 		<img src="https://app.bitrise.io/app/095a1e208c21c464/status.svg?token=UuyObMFZ8ONAV36dgWmkAQ&branch=master" alt="Build Status" />
 	</a>
-	<a href="https://codeclimate.com/github/MortenGregersen/FluxorExplorer/maintainability">
-		<img src="https://api.codeclimate.com/v1/badges/e91073b6908a177fa1e6/maintainability" alt="Maintainability" />
+	<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/maintainability">
+		<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/maintainability" alt="Maintainability" />
 	</a>
-	<a href="https://codeclimate.com/github/MortenGregersen/FluxorExplorer/test_coverage">
-		<img src="https://api.codeclimate.com/v1/badges/e91073b6908a177fa1e6/test_coverage" alt="Test Coverage" />
+	<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/test_coverage">
+		<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/test_coverage" alt="Test Coverage" />
 	</a>
 </div>
 
-![](https://github.com/MortenGregersen/FluxorExplorer/blob/master/Assets/FluxorExplorer.png)
+![](https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/FluxorExplorer.png)
 
 FluxorExplorer allows developers of apps using Fluxor, to step through the actions dispatched and the corresponding state changes, to easily debug the data flow of their app.
 
 ## 🗣 Make your app talk
 
-The only thing you need to do, to make your app send out the dispatched actions and state changes, is to register the [FluxorExplorerInterceptor](https://github.com/MortenGregersen/FluxorExplorerInterceptor) in the store:
+The only thing you need to do, to make your app send out the dispatched actions and state changes, is to register the [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorerInterceptor) in the store:
 
 ```swift
 let store = Store(initialState: AppState())
