@@ -8,13 +8,18 @@ import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
 class SessionHandler: NSObject {
-    var peer = MCPeerID(displayName: UIDevice.current.name)
-    var session: MCSession!
-    var mcServiceBrowser: MCNearbyServiceBrowser!
+    private let peer: MCPeerID
+    private var session: MCSession?
+    private var mcServiceBrowser: MCNearbyServiceBrowser
+
+    override init() {
+        peer = MCPeerID(displayName: UIDevice.current.name)
+        mcServiceBrowser = MCNearbyServiceBrowser(peer: peer, serviceType: "fluxor-explorer")
+        super.init()
+        mcServiceBrowser.delegate = self
+    }
 
     func start() {
-        mcServiceBrowser = MCNearbyServiceBrowser(peer: peer, serviceType: "fluxor-explorer")
-        mcServiceBrowser.delegate = self
         mcServiceBrowser.startBrowsingForPeers()
     }
 }
@@ -66,9 +71,10 @@ extension SessionHandler: MCSessionDelegate {
 extension SessionHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         print("==MC== foundPeer", peerID)
-        session = MCSession(peer: peer, securityIdentity: nil, encryptionPreference: .none)
+        let session = MCSession(peer: peer, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
+        self.session = session
     }
 
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
