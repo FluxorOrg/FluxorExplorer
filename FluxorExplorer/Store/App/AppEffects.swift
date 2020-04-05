@@ -4,19 +4,11 @@
  *  MIT license, see LICENSE file for details
  */
 
-import Combine
 import Fluxor
 import UIKit
 
 class AppEffects: Effects {
-    lazy var effects: [Effect] = [openPeerWindow, relayReceivedSnapshot]
-    let actions: ActionPublisher
-
-    required init(_ actions: ActionPublisher) {
-        self.actions = actions
-    }
-
-    lazy var openPeerWindow = createEffect(
+    let openPeerWindow = createEffectCreator { actions in
         actions
             .ofType(SelectPeerAction.self)
             .sink(receiveValue: { action in
@@ -27,13 +19,13 @@ class AppEffects: Effects {
                                                                    options: nil,
                                                                    errorHandler: nil)
             })
-    )
+    }
 
-    lazy var relayReceivedSnapshot = createEffect(
+    let relayReceivedSnapshot = createEffectCreator { actions in
         actions
             .ofType(DidReceiveSnapshotAction.self)
             .sink(receiveValue: { action in
                 Current.storeByPeers[action.peer.displayName]?.dispatch(action: action)
             })
-    )
+    }
 }

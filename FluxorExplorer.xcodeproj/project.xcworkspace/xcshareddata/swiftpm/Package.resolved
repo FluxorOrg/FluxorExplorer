@@ -2,30 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "AnyCodable",
-        "repositoryURL": "https://github.com/Flight-School/AnyCodable",
+        "package": "Fluxor",
+        "repositoryURL": "https://github.com/FluxorOrg/Fluxor.git",
         "state": {
           "branch": null,
-          "revision": "6e9610258e9f1044b5e0d88545052846448b43c3",
-          "version": "0.2.3"
-        }
-      },
-      {
-        "package": "Fluxor",
-        "repositoryURL": "https://github.com/MortenGregersen/Fluxor.git",
-        "state": {
-          "branch": "master",
-          "revision": "4b849da19a8e923e00df7e8a73f5b4fe08b6e799",
-          "version": null
+          "revision": "8ba79ce406138938229c22c6d91932fe11a54f5c",
+          "version": "1.0.0"
         }
       },
       {
         "package": "FluxorExplorerSnapshot",
-        "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerSnapshot.git",
+        "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerSnapshot.git",
         "state": {
-          "branch": "master",
-          "revision": "a78416d3f6c21c12ee1731067e778b6f2a5dcc96",
-          "version": null
+          "branch": null,
+          "revision": "e3b5799238d42faa19c0cc2515bd4497529c2b8d",
+          "version": "1.0.0"
         }
       }
     ]

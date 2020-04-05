@@ -24,8 +24,6 @@
 		5A519EE023D7A67300B4F1CA /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EDF23D7A67300B4F1CA /* WindowState.swift */; };
 		5A519EE223D7A8C700B4F1CA /* WindowReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EE123D7A8C700B4F1CA /* WindowReducers.swift */; };
 		5A519EE423D7A94E00B4F1CA /* WindowSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EE323D7A94E00B4F1CA /* WindowSelectors.swift */; };
-		5A6A837823AADD7E00617693 /* FluxorExplorerSnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6A837723AADD7E00617693 /* FluxorExplorerSnapshot */; };
-		5A6A837B23AADD9D00617693 /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A6A837A23AADD9D00617693 /* Fluxor */; };
 		5A6A837D23ABB76B00617693 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A837C23ABB76B00617693 /* AppEnvironment.swift */; };
 		5A6A837F23ABB91000617693 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A837E23ABB91000617693 /* SessionHandler.swift */; };
 		5A6A838223ABB9BF00617693 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A838123ABB9BF00617693 /* AppState.swift */; };
@@ -33,6 +31,9 @@
 		5A6A838623AC09EE00617693 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A838523AC09EE00617693 /* Actions.swift */; };
 		5A80D84923D4ED8A00940802 /* AppEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A80D84823D4ED8A00940802 /* AppEffects.swift */; };
 		5A80D84E23D5089F00940802 /* SceneActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A80D84D23D5089F00940802 /* SceneActivity.swift */; };
+		5A838C422439353A00EAE9ED /* FluxorTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5A838C412439353A00EAE9ED /* FluxorTestSupport */; };
+		5A838C442439353A00EAE9ED /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A838C432439353A00EAE9ED /* Fluxor */; };
+		5A838C472439355D00EAE9ED /* FluxorExplorerSnapshot in Frameworks */ = {isa = PBXBuildFile; productRef = 5A838C462439355D00EAE9ED /* FluxorExplorerSnapshot */; };
 		5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A903187242D697F00E18C57 /* AppReducersTests.swift */; };
 		5A90318A242D6B9700E18C57 /* AppSelectorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A903189242D6B9700E18C57 /* AppSelectorsTests.swift */; };
 		5AE8AE60242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8AE5F242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift */; };
@@ -102,8 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A6A837B23AADD9D00617693 /* Fluxor in Frameworks */,
-				5A6A837823AADD7E00617693 /* FluxorExplorerSnapshot in Frameworks */,
+				5A838C442439353A00EAE9ED /* Fluxor in Frameworks */,
+				5A838C472439355D00EAE9ED /* FluxorExplorerSnapshot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A838C422439353A00EAE9ED /* FluxorTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +298,8 @@
 			);
 			name = FluxorExplorer;
 			packageProductDependencies = (
-				5A6A837723AADD7E00617693 /* FluxorExplorerSnapshot */,
-				5A6A837A23AADD9D00617693 /* Fluxor */,
+				5A838C432439353A00EAE9ED /* Fluxor */,
+				5A838C462439355D00EAE9ED /* FluxorExplorerSnapshot */,
 			);
 			productName = FluxorExplorer;
 			productReference = 5A240295237B5E3100AD7007 /* FluxorExplorer.app */;
@@ -317,6 +319,9 @@
 				5A2402AD237B5E3600AD7007 /* PBXTargetDependency */,
 			);
 			name = FluxorExplorerTests;
+			packageProductDependencies = (
+				5A838C412439353A00EAE9ED /* FluxorTestSupport */,
+			);
 			productName = FluxorExplorerTests;
 			productReference = 5A2402AB237B5E3600AD7007 /* FluxorExplorerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -372,8 +377,8 @@
 			);
 			mainGroup = 5A24028C237B5E3100AD7007;
 			packageReferences = (
-				5A6A837623AADD7E00617693 /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */,
-				5A6A837923AADD9D00617693 /* XCRemoteSwiftPackageReference "Fluxor" */,
+				5A838C402439353A00EAE9ED /* XCRemoteSwiftPackageReference "Fluxor" */,
+				5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */,
 			);
 			productRefGroup = 5A240296237B5E3100AD7007 /* Products */;
 			projectDirPath = "";
@@ -797,34 +802,39 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5A6A837623AADD7E00617693 /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */ = {
+		5A838C402439353A00EAE9ED /* XCRemoteSwiftPackageReference "Fluxor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MortenGregersen/FluxorExplorerSnapshot.git";
+			repositoryURL = "https://github.com/FluxorOrg/Fluxor.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
-		5A6A837923AADD9D00617693 /* XCRemoteSwiftPackageReference "Fluxor" */ = {
+		5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MortenGregersen/Fluxor.git";
+			repositoryURL = "https://github.com/FluxorOrg/FluxorExplorerSnapshot.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5A6A837723AADD7E00617693 /* FluxorExplorerSnapshot */ = {
+		5A838C412439353A00EAE9ED /* FluxorTestSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5A6A837623AADD7E00617693 /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */;
-			productName = FluxorExplorerSnapshot;
+			package = 5A838C402439353A00EAE9ED /* XCRemoteSwiftPackageReference "Fluxor" */;
+			productName = FluxorTestSupport;
 		};
-		5A6A837A23AADD9D00617693 /* Fluxor */ = {
+		5A838C432439353A00EAE9ED /* Fluxor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5A6A837923AADD9D00617693 /* XCRemoteSwiftPackageReference "Fluxor" */;
+			package = 5A838C402439353A00EAE9ED /* XCRemoteSwiftPackageReference "Fluxor" */;
 			productName = Fluxor;
+		};
+		5A838C462439355D00EAE9ED /* FluxorExplorerSnapshot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */;
+			productName = FluxorExplorerSnapshot;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
