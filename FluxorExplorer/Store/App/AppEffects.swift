@@ -14,10 +14,10 @@ class AppEffects: Effects {
             .sink(receiveValue: { action in
                 let userActivity = SceneConfiguration.peer.activity
                 userActivity.userInfo = ["peerName": action.peer.displayName]
-                UIApplication.shared.requestSceneSessionActivation(nil,
-                                                                   userActivity: userActivity,
-                                                                   options: nil,
-                                                                   errorHandler: nil)
+                Current.application.requestSceneSessionActivation(nil,
+                                                                  userActivity: userActivity,
+                                                                  options: nil,
+                                                                  errorHandler: nil)
             })
     }
 

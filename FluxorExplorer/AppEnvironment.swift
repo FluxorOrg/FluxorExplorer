@@ -5,8 +5,10 @@
  */
 
 import Fluxor
+import UIKit
 
 struct AppEnvironment {
+    var application: UIApplicationProtocol = UIApplication.shared
     var storeByPeers = [String: Store<WindowState>]()
     let store: Store<AppState> = {
         let store = Store(initialState: AppState())
@@ -18,3 +20,14 @@ struct AppEnvironment {
 
 // swiftlint:disable:next identifier_name
 var Current = AppEnvironment()
+
+// MARK: - Support mocking of UIApplication in tests
+
+public protocol UIApplicationProtocol {
+    func requestSceneSessionActivation(_ sceneSession: UISceneSession?,
+                                       userActivity: NSUserActivity?,
+                                       options: UIScene.ActivationRequestOptions?,
+                                       errorHandler: ((Error) -> Void)?)
+}
+
+extension UIApplication: UIApplicationProtocol {}

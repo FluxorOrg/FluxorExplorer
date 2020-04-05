@@ -7,18 +7,27 @@
 import Fluxor
 @testable import FluxorExplorer
 import FluxorExplorerSnapshot
+import FluxorTestSupport
 import MultipeerConnectivity.MCPeerID
 import XCTest
 
 class AppEffectsTests: XCTestCase {
-    @Published private var action: Action = InitialTestAction()
-
-    func testOpenPeerWindow() {}
+    func testOpenPeerWindow() {
+        // Given
+        let effects = AppEffects()
+        let peer = MCPeerID(displayName: "Some peer")
+        let mockApplication = MockApplication()
+        Current.application = mockApplication
+        // When
+        effects.openPeerWindow.run(with: SelectPeerAction(peer: peer))
+        // Then
+        let selectedDisplayName = mockApplication.userActivityForRequestedSceneSession!.userInfo!["peerName"] as! String
+        XCTAssertEqual(selectedDisplayName, peer.displayName)
+    }
 
     func testRelayReceivedSnapshot() {
         // Given
-        let effects = AppEffects($action)
-        guard case .nonDispatching = effects.relayReceivedSnapshot else { XCTFail(); return }
+        let effects = AppEffects()
         let peer = MCPeerID(displayName: "Some peer")
         let snapshot = FluxorExplorerSnapshot(action: TestAction(), oldState: TestState(counter: 42), newState: TestState(counter: 1337))
         let store = MockStore(initialState: WindowState(peer: PeerState(peerName: peer.displayName)))
@@ -27,9 +36,10 @@ class AppEffectsTests: XCTestCase {
         Current.storeByPeers[peer.displayName] = store
         // When
         let didReceiveSnapshotAction = DidReceiveSnapshotAction(peer: peer, snapshot: snapshot)
-        action = didReceiveSnapshotAction
+        effects.relayReceivedSnapshot.run(with: didReceiveSnapshotAction)
         // Then
-        XCTAssertEqual(interceptor.dispatchedActionsAndStates[0].action as! DidReceiveSnapshotAction, didReceiveSnapshotAction)
+        let dispatchedAction = interceptor.dispatchedActionsAndStates[0].action as! DidReceiveSnapshotAction
+        XCTAssertEqual(dispatchedAction, didReceiveSnapshotAction)
     }
 }
 
@@ -43,5 +53,16 @@ private struct InitialTestAction: Action {}
 extension DidReceiveSnapshotAction: Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.peer == rhs.peer && lhs.snapshot == rhs.snapshot
+    }
+}
+
+private class MockApplication: UIApplicationProtocol {
+    var userActivityForRequestedSceneSession: NSUserActivity?
+
+    func requestSceneSessionActivation(_ sceneSession: UISceneSession?,
+                                       userActivity: NSUserActivity?,
+                                       options: UIScene.ActivationRequestOptions?,
+                                       errorHandler: ((Error) -> Void)?) {
+        userActivityForRequestedSceneSession = userActivity
     }
 }
