@@ -9,7 +9,7 @@ import MultipeerConnectivity.MCPeerID
 import SwiftUI
 
 struct PeersView {
-    @EnvironmentObject var store: Store<AppState>
+    var model = PeersViewModel()
     @State var peers = [MCPeerID]()
 }
 
@@ -21,7 +21,7 @@ extension PeersView: View {
                     List {
                         ForEach(peers, id: \.displayName) { peer in
                             Button(peer.displayName) {
-                                self.store.dispatch(action: SelectPeerAction(peer: peer))
+                                self.model.select(peer: peer)
                             }
                         }
                     }
@@ -36,7 +36,7 @@ extension PeersView: View {
                 }
             }
             .navigationBarTitle("Connected devices")
-            .onReceive(store.select(Selectors.getPeers), perform: { self.peers = $0 })
+            .onReceive(model.store.select(Selectors.getPeers), perform: { self.peers = $0 })
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .frame(minWidth: 375, maxWidth: UIDevice.current.isMac ? 375 : nil, minHeight: 700, maxHeight: .infinity)
