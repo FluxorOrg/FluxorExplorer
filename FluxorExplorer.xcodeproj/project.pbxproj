@@ -37,6 +37,7 @@
 		5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A903187242D697F00E18C57 /* AppReducersTests.swift */; };
 		5A90318A242D6B9700E18C57 /* AppSelectorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A903189242D6B9700E18C57 /* AppSelectorsTests.swift */; };
 		5AA6C7A52439AF4C00ACAD74 /* AppEffectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA6C7A42439AF4C00ACAD74 /* AppEffectsTests.swift */; };
+		5AA6C7A82439F9C100ACAD74 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 5AA6C7A72439F9C100ACAD74 /* ViewInspector */; };
 		5AE8AE60242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8AE5F242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift */; };
 		5AF6DA2423AEC9610039D3B2 /* SnapshotsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */; };
 		5AF6DA2623AECC420039D3B2 /* SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */; };
@@ -115,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A838C422439353A00EAE9ED /* FluxorTestSupport in Frameworks */,
+				5AA6C7A82439F9C100ACAD74 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +326,7 @@
 			name = FluxorExplorerTests;
 			packageProductDependencies = (
 				5A838C412439353A00EAE9ED /* FluxorTestSupport */,
+				5AA6C7A72439F9C100ACAD74 /* ViewInspector */,
 			);
 			productName = FluxorExplorerTests;
 			productReference = 5A2402AB237B5E3600AD7007 /* FluxorExplorerTests.xctest */;
@@ -382,6 +385,7 @@
 			packageReferences = (
 				5A838C402439353A00EAE9ED /* XCRemoteSwiftPackageReference "Fluxor" */,
 				5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */,
+				5AA6C7A62439F9C100ACAD74 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 5A240296237B5E3100AD7007 /* Products */;
 			projectDirPath = "";
@@ -822,6 +826,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5AA6C7A62439F9C100ACAD74 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -839,6 +851,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */;
 			productName = FluxorExplorerSnapshot;
+		};
+		5AA6C7A72439F9C100ACAD74 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AA6C7A62439F9C100ACAD74 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
