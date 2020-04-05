@@ -12,8 +12,8 @@
 		<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
 	</a>
 	<br />
-	<a href="https://app.bitrise.io/app/095a1e208c21c464">
-		<img src="https://app.bitrise.io/app/095a1e208c21c464/status.svg?token=UuyObMFZ8ONAV36dgWmkAQ&branch=master" alt="Build Status" />
+	<a href="https://app.bitrise.io/app/b31fe08a8d1d2924">
+		<img src="https://app.bitrise.io/app/b31fe08a8d1d2924/status.svg?token=Z4U2VTrq-pdx4ls7aUeAXw&branch=master" alt="Build Status" />
 	</a>
 	<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/maintainability">
 		<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/maintainability" alt="Maintainability" />
