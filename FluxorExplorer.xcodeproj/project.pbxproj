@@ -14,7 +14,6 @@
 		5A24029F237B5E3500AD7007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A24029E237B5E3500AD7007 /* Assets.xcassets */; };
 		5A2402A2237B5E3500AD7007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2402A1237B5E3500AD7007 /* Preview Assets.xcassets */; };
 		5A2402A5237B5E3500AD7007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2402A3237B5E3500AD7007 /* LaunchScreen.storyboard */; };
-		5A2402B0237B5E3600AD7007 /* FluxorExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2402AF237B5E3600AD7007 /* FluxorExplorerTests.swift */; };
 		5A2402BB237B5E3600AD7007 /* FluxorExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2402BA237B5E3600AD7007 /* FluxorExplorerUITests.swift */; };
 		5A2FD681242D671A004F4DDB /* MCPeerID+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FD680242D671A004F4DDB /* MCPeerID+Extensions.swift */; };
 		5A32DA9423D11C2700470638 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32DA9323D11C2700470638 /* PeersView.swift */; };
@@ -75,7 +74,6 @@
 		5A2402A4237B5E3500AD7007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A2402A6237B5E3500AD7007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A2402AB237B5E3600AD7007 /* FluxorExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A2402AF237B5E3600AD7007 /* FluxorExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorExplorerTests.swift; sourceTree = "<group>"; };
 		5A2402B1237B5E3600AD7007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A2402B6237B5E3600AD7007 /* FluxorExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2402BA237B5E3600AD7007 /* FluxorExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorExplorerUITests.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				5AA6C7A92439FA4400ACAD74 /* Views */,
 				5AF91194243A9AD30062578D /* ViewModels */,
 				5AE8AE5D242C1B550007FD9A /* Store */,
-				5A2402AF237B5E3600AD7007 /* FluxorExplorerTests.swift */,
 				5A2402B1237B5E3600AD7007 /* Info.plist */,
 			);
 			path = FluxorExplorerTests;
@@ -498,7 +495,6 @@
 			files = (
 				5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */,
 				5AA6C7A52439AF4C00ACAD74 /* AppEffectsTests.swift in Sources */,
-				5A2402B0237B5E3600AD7007 /* FluxorExplorerTests.swift in Sources */,
 				5A90318A242D6B9700E18C57 /* AppSelectorsTests.swift in Sources */,
 				5AF91196243A9AE80062578D /* PeersViewModelTests.swift in Sources */,
 				5AA6C7AB2439FACA00ACAD74 /* PeersViewTests.swift in Sources */,
