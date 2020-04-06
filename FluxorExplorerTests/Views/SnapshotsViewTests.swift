@@ -32,4 +32,4 @@ class SnapshotsListViwTests: XCTestCase {
     }
 }
 
-extension SnapshotsListView: Inspectable {}
+extension SnapshotsView: Inspectable {}

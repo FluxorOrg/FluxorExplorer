@@ -8,7 +8,7 @@ import Fluxor
 import FluxorExplorerSnapshot
 import SwiftUI
 
-struct SnapshotsListView {
+struct SnapshotsView {
     @EnvironmentObject var windowStore: Store<WindowState>
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State var snapshots = [FluxorExplorerSnapshot]()
@@ -25,7 +25,7 @@ struct SnapshotsListView {
     }
 }
 
-extension SnapshotsListView: View {
+extension SnapshotsView: View {
     var body: some View {
         List {
             ForEach(snapshots, id: \.date) { snapshot in

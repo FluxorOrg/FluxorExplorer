@@ -9,7 +9,7 @@ import SwiftUI
 struct PeerView: View {
     var body: some View {
         NavigationView {
-            SnapshotsListView()
+            SnapshotsView()
             Text("Select a snapshot in the list")
         }
     }

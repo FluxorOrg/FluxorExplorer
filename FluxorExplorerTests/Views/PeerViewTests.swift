@@ -14,7 +14,7 @@ class PeerViewTests: XCTestCase {
         let view = PeerView()
         // Then
         let navigationView = try view.inspect().navigationView()
-        XCTAssertNotNil(try navigationView.view(SnapshotsListView.self, 0))
+        XCTAssertNotNil(try navigationView.view(SnapshotsView.self, 0))
         XCTAssertEqual(try navigationView.text(1).string(), "Select a snapshot in the list")
     }
 
