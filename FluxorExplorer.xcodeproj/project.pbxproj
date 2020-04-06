@@ -44,6 +44,8 @@
 		5AF6DA2423AEC9610039D3B2 /* SnapshotsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */; };
 		5AF6DA2623AECC420039D3B2 /* SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */; };
 		5AF91196243A9AE80062578D /* PeersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91195243A9AE80062578D /* PeersViewModelTests.swift */; };
+		5AF91198243A9D0A0062578D /* SessionHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91197243A9D0A0062578D /* SessionHandlerTests.swift */; };
+		5AF9119A243AFE710062578D /* Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91199243AFE710062578D /* Waiting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +107,8 @@
 		5AF6DA2323AEC9610039D3B2 /* SnapshotsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsListView.swift; sourceTree = "<group>"; };
 		5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotView.swift; sourceTree = "<group>"; };
 		5AF91195243A9AE80062578D /* PeersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewModelTests.swift; sourceTree = "<group>"; };
+		5AF91197243A9D0A0062578D /* SessionHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandlerTests.swift; sourceTree = "<group>"; };
+		5AF91199243AFE710062578D /* Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 				5AF91194243A9AD30062578D /* ViewModels */,
 				5AE8AE5D242C1B550007FD9A /* Store */,
 				5A2402B1237B5E3600AD7007 /* Info.plist */,
+				5AF91197243A9D0A0062578D /* SessionHandlerTests.swift */,
+				5AF91199243AFE710062578D /* Waiting.swift */,
 			);
 			path = FluxorExplorerTests;
 			sourceTree = "<group>";
@@ -493,8 +499,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF91198243A9D0A0062578D /* SessionHandlerTests.swift in Sources */,
 				5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */,
 				5AA6C7A52439AF4C00ACAD74 /* AppEffectsTests.swift in Sources */,
+				5AF9119A243AFE710062578D /* Waiting.swift in Sources */,
 				5A90318A242D6B9700E18C57 /* AppSelectorsTests.swift in Sources */,
 				5AF91196243A9AE80062578D /* PeersViewModelTests.swift in Sources */,
 				5AA6C7AB2439FACA00ACAD74 /* PeersViewTests.swift in Sources */,

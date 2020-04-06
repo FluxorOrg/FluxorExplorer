@@ -10,7 +10,7 @@ import UIKit
 struct AppEnvironment {
     var application: UIApplicationProtocol = UIApplication.shared
     var storeByPeers = [String: Store<WindowState>]()
-    let store: Store<AppState> = {
+    var store: Store<AppState> = {
         let store = Store(initialState: AppState())
         store.register(reducer: appReducer)
         store.register(effects: AppEffects())
