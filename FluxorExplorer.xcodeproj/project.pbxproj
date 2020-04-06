@@ -18,6 +18,7 @@
 		5A2FD681242D671A004F4DDB /* MCPeerID+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2FD680242D671A004F4DDB /* MCPeerID+Extensions.swift */; };
 		5A32DA9423D11C2700470638 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32DA9323D11C2700470638 /* PeersView.swift */; };
 		5A32DA9623D4B89D00470638 /* PeersSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32DA9523D4B89D00470638 /* PeersSceneDelegate.swift */; };
+		5A3F4F91243B53D500F76D00 /* SnapshotsListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3F4F90243B53D500F76D00 /* SnapshotsListViewTests.swift */; };
 		5A3FF57B23CBBAB60010B160 /* DataStructureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FF57A23CBBAB60010B160 /* DataStructureView.swift */; };
 		5A3FF57D23CE5C560010B160 /* AppSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FF57C23CE5C560010B160 /* AppSelectors.swift */; };
 		5A519EE023D7A67300B4F1CA /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EDF23D7A67300B4F1CA /* WindowState.swift */; };
@@ -46,6 +47,7 @@
 		5AF91196243A9AE80062578D /* PeersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91195243A9AE80062578D /* PeersViewModelTests.swift */; };
 		5AF91198243A9D0A0062578D /* SessionHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91197243A9D0A0062578D /* SessionHandlerTests.swift */; };
 		5AF9119A243AFE710062578D /* Waiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF91199243AFE710062578D /* Waiting.swift */; };
+		5AF9119C243B50DD0062578D /* PeerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF9119B243B50DD0062578D /* PeerViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		5A2FD680242D671A004F4DDB /* MCPeerID+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCPeerID+Extensions.swift"; sourceTree = "<group>"; };
 		5A32DA9323D11C2700470638 /* PeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersView.swift; sourceTree = "<group>"; };
 		5A32DA9523D4B89D00470638 /* PeersSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSceneDelegate.swift; sourceTree = "<group>"; };
+		5A3F4F90243B53D500F76D00 /* SnapshotsListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsListViewTests.swift; sourceTree = "<group>"; };
 		5A3FF57A23CBBAB60010B160 /* DataStructureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureView.swift; sourceTree = "<group>"; };
 		5A3FF57C23CE5C560010B160 /* AppSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectors.swift; sourceTree = "<group>"; };
 		5A519EDF23D7A67300B4F1CA /* WindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowState.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		5AF91195243A9AE80062578D /* PeersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewModelTests.swift; sourceTree = "<group>"; };
 		5AF91197243A9D0A0062578D /* SessionHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandlerTests.swift; sourceTree = "<group>"; };
 		5AF91199243AFE710062578D /* Waiting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiting.swift; sourceTree = "<group>"; };
+		5AF9119B243B50DD0062578D /* PeerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				5AA6C7AA2439FACA00ACAD74 /* PeersViewTests.swift */,
+				5AF9119B243B50DD0062578D /* PeerViewTests.swift */,
+				5A3F4F90243B53D500F76D00 /* SnapshotsListViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +506,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF91198243A9D0A0062578D /* SessionHandlerTests.swift in Sources */,
+				5AF9119C243B50DD0062578D /* PeerViewTests.swift in Sources */,
+				5A3F4F91243B53D500F76D00 /* SnapshotsListViewTests.swift in Sources */,
 				5A903188242D697F00E18C57 /* AppReducersTests.swift in Sources */,
 				5AA6C7A52439AF4C00ACAD74 /* AppEffectsTests.swift in Sources */,
 				5AF9119A243AFE710062578D /* Waiting.swift in Sources */,
