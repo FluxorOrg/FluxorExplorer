@@ -19,6 +19,7 @@
 		5A32DA9423D11C2700470638 /* PeersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32DA9323D11C2700470638 /* PeersView.swift */; };
 		5A32DA9623D4B89D00470638 /* PeersSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32DA9523D4B89D00470638 /* PeersSceneDelegate.swift */; };
 		5A3F4F91243B53D500F76D00 /* SnapshotsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3F4F90243B53D500F76D00 /* SnapshotsViewTests.swift */; };
+		5A3F4F93243BD01200F76D00 /* SnapshotsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3F4F92243BD01200F76D00 /* SnapshotsViewModel.swift */; };
 		5A3FF57B23CBBAB60010B160 /* DataStructureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FF57A23CBBAB60010B160 /* DataStructureView.swift */; };
 		5A3FF57D23CE5C560010B160 /* AppSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FF57C23CE5C560010B160 /* AppSelectors.swift */; };
 		5A519EE023D7A67300B4F1CA /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EDF23D7A67300B4F1CA /* WindowState.swift */; };
@@ -87,6 +88,7 @@
 		5A32DA9323D11C2700470638 /* PeersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersView.swift; sourceTree = "<group>"; };
 		5A32DA9523D4B89D00470638 /* PeersSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersSceneDelegate.swift; sourceTree = "<group>"; };
 		5A3F4F90243B53D500F76D00 /* SnapshotsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsViewTests.swift; sourceTree = "<group>"; };
+		5A3F4F92243BD01200F76D00 /* SnapshotsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsViewModel.swift; sourceTree = "<group>"; };
 		5A3FF57A23CBBAB60010B160 /* DataStructureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureView.swift; sourceTree = "<group>"; };
 		5A3FF57C23CE5C560010B160 /* AppSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectors.swift; sourceTree = "<group>"; };
 		5A519EDF23D7A67300B4F1CA /* WindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowState.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				5AA6C7AD243A022A00ACAD74 /* PeersViewModel.swift */,
+				5A3F4F92243BD01200F76D00 /* SnapshotsViewModel.swift */,
 				5AA6C7AF243A025000ACAD74 /* ViewModel.swift */,
 			);
 			path = ViewModels;
@@ -485,6 +488,7 @@
 				5A519EE223D7A8C700B4F1CA /* WindowReducers.swift in Sources */,
 				5A2FD681242D671A004F4DDB /* MCPeerID+Extensions.swift in Sources */,
 				5A6A838223ABB9BF00617693 /* AppState.swift in Sources */,
+				5A3F4F93243BD01200F76D00 /* SnapshotsViewModel.swift in Sources */,
 				5A13400B23D79B8F00B04A5E /* UIDevice+Mac.swift in Sources */,
 				5A3FF57B23CBBAB60010B160 /* DataStructureView.swift in Sources */,
 				5A519EE423D7A94E00B4F1CA /* WindowSelectors.swift in Sources */,

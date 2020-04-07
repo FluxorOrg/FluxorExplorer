@@ -9,39 +9,41 @@ import FluxorExplorerSnapshot
 import SwiftUI
 
 struct SnapshotsView {
-    @EnvironmentObject var windowStore: Store<WindowState>
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    var model: SnapshotsViewModel
     @State var snapshots = [FluxorExplorerSnapshot]()
 
-    let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
-        return dateFormatter
-    }()
-
-    var timeBackgroundColor: Color {
-        Color(self.colorScheme == .dark ? .darkGray : .init(white: 0.9, alpha: 1))
+    func timeBackgroundColor(for colorScheme: ColorScheme) -> Color {
+        Color(colorScheme == .dark ? .darkGray : .init(white: 0.9, alpha: 1))
     }
 }
 
 extension SnapshotsView: View {
     var body: some View {
-        List {
-            ForEach(snapshots, id: \.date) { snapshot in
-                NavigationLink(destination: SnapshotView(snapshot: snapshot)) {
-                    HStack {
-                        Text(snapshot.actionData.name)
-                        Spacer()
-                        Text(self.dateFormatter.string(from: snapshot.date))
-                            .padding(6)
-                            .background(self.timeBackgroundColor)
-                            .cornerRadius(6)
+        HStack {
+            if snapshots.count > 0 {
+                List {
+                    ForEach(snapshots, id: \.date) { snapshot in
+                        NavigationLink(destination: SnapshotView(snapshot: snapshot)) {
+                            HStack {
+                                Text(snapshot.actionData.name)
+                                Spacer()
+                                Text(self.model.dateFormatter.string(from: snapshot.date))
+                                    .padding(6)
+                                    .background(self.timeBackgroundColor(for: self.colorScheme))
+                                    .cornerRadius(6)
+                            }
+                        }
                     }
+                }
+            } else {
+                VStack {
+                    Text("No snapshots yet")
+                        .font(.headline)
                 }
             }
         }
         .navigationBarTitle("Snapshots")
-        .onReceive(windowStore.select(Selectors.getSnapshots), perform: { self.snapshots = $0 })
+        .onReceive(model.store.select(Selectors.getSnapshots), perform: { self.snapshots = $0 })
     }
 }

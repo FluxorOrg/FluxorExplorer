@@ -27,9 +27,7 @@ class PeerSceneDelegate: UIResponder, UIWindowSceneDelegate {
         let windowStore = Store(initialState: windowState)
         windowStore.register(reducer: windowReducer)
         Current.storeByPeers[peerName] = windowStore
-        let peerView = PeerView()
-            .environmentObject(Current.store)
-            .environmentObject(windowStore)
+        let peerView = PeerView(store: windowStore)
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UIHostingController(rootView: peerView)
         self.window?.makeKeyAndVisible()

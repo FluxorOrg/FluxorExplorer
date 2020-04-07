@@ -4,6 +4,7 @@
  *  MIT license, see LICENSE file for details
  */
 
+import Fluxor
 @testable import FluxorExplorer
 import ViewInspector
 import XCTest
@@ -11,7 +12,7 @@ import XCTest
 class PeerViewTests: XCTestCase {
     func testDefaultText() throws {
         // Given
-        let view = PeerView()
+        let view = PeerView(store: Store(initialState: WindowState(peer: PeerState(peerName: "Some peer"))))
         // Then
         let navigationView = try view.inspect().navigationView()
         XCTAssertNotNil(try navigationView.view(SnapshotsView.self, 0))
