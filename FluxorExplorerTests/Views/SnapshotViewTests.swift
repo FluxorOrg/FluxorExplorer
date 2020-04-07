@@ -26,7 +26,7 @@ class SnapshotViewTests: XCTestCase {
         // Then
         let vStack = try getVStack(in: view)
         XCTAssertEqual(try vStack.text(0).string(), "Time:")
-        XCTAssertEqual(try vStack.text(1).string(), "23.16.38 CEST")
+        XCTAssertEqual(try vStack.text(1).string(), "11:16:38 PM GMT+2")
 //        ViewInspector doesn't support this right now
 //        XCTAssertEqual(try vStack.child(at: 3), "Payload")
 //        XCTAssertEqual(try vStack.view(DataStructureView.self, 3).actualView().dataStructure,
@@ -42,7 +42,7 @@ class SnapshotViewTests: XCTestCase {
         // Then
         let vStack = try getVStack(in: view)
         XCTAssertEqual(try vStack.text(0).string(), "Time:")
-        XCTAssertEqual(try vStack.text(1).string(), "23.14.58 CEST")
+        XCTAssertEqual(try vStack.text(1).string(), "11:14:58 PM GMT+2")
         XCTAssertEqual(try vStack.text(4).string(), "State")
         XCTAssertEqual(try vStack.view(DataStructureView.self, 5).actualView().dataStructure,
                        snapshotWithoutPayload.newState)
