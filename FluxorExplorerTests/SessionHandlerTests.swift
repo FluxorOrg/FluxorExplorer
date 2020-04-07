@@ -19,7 +19,7 @@ class SessionHandlerTests: XCTestCase {
     var handler: SessionHandler!
     var interceptor: TestInterceptor<AppState>!
     var store: Store<AppState>!
-    
+
     override func setUp() {
         session = .init(peer: peer)
         handler = .init()
