@@ -62,7 +62,6 @@ class SnapshotsViewTests: XCTestCase {
 }
 
 extension SnapshotsView: Inspectable {}
-extension SnapshotView: Inspectable {}
 
 private struct TestState: Encodable {
     let counter: Int
