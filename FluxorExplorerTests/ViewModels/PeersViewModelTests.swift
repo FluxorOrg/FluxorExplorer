@@ -9,6 +9,8 @@ import Fluxor
 import MultipeerConnectivity
 import XCTest
 
+// swiftlint:disable force_cast
+
 class PeersViewModelTests: XCTestCase {
     var store: Store<AppState>!
     var interceptor: TestInterceptor<AppState>!

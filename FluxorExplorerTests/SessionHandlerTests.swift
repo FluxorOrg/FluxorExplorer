@@ -10,6 +10,8 @@ import FluxorExplorerSnapshot
 import MultipeerConnectivity
 import XCTest
 
+// swiftlint:disable force_cast
+
 class SessionHandlerTests: XCTestCase {
     let peer = MCPeerID(displayName: "Some peer")
     let serviceType = "fluxor-explorer"
@@ -102,7 +104,10 @@ class SessionHandlerTests: XCTestCase {
 private class MockBrowser: MCNearbyServiceBrowser {
     var invitedPeer: MCPeerID?
 
-    override func invitePeer(_ peerID: MCPeerID, to session: MCSession, withContext context: Data?, timeout: TimeInterval) {
+    override func invitePeer(_ peerID: MCPeerID,
+                             to session: MCSession,
+                             withContext context: Data?,
+                             timeout: TimeInterval) {
         invitedPeer = peerID
     }
 }

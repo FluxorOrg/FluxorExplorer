@@ -22,13 +22,13 @@ class PeerSceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         guard let peerName = activity.userInfo?["peerName"] as? String else { return }
-        
+
         windowScene.title = peerName
         let initialState = WindowState(peer: PeerState(peerName: peerName))
         let windowStore = Store(initialState: initialState, reducers: [windowReducer])
         Current.storeByPeers[peerName] = windowStore
         let peerView = PeerView(store: windowStore)
-        
+
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UIHostingController(rootView: peerView)
         self.window?.makeKeyAndVisible()

@@ -11,6 +11,8 @@ import FluxorTestSupport
 import MultipeerConnectivity.MCPeerID
 import XCTest
 
+// swiftlint:disable force_cast
+
 class AppEffectsTests: XCTestCase {
     func testOpenPeerWindow() {
         // Given
@@ -29,7 +31,9 @@ class AppEffectsTests: XCTestCase {
         // Given
         let effects = AppEffects()
         let peer = MCPeerID(displayName: "Some peer")
-        let snapshot = FluxorExplorerSnapshot(action: TestAction(), oldState: TestState(counter: 42), newState: TestState(counter: 1337))
+        let snapshot = FluxorExplorerSnapshot(action: TestAction(),
+                                              oldState: TestState(counter: 42),
+                                              newState: TestState(counter: 1337))
         let store = MockStore(initialState: WindowState(peer: PeerState(peerName: peer.displayName)))
         let interceptor = TestInterceptor<WindowState>()
         store.register(interceptor: interceptor)
