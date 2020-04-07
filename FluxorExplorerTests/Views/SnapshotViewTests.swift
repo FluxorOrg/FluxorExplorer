@@ -20,9 +20,10 @@ class SnapshotViewTests: XCTestCase {
                                                         newState: TestState(latestGreeting: "Hello"),
                                                         date: Date(timeIntervalSince1970: 1586294098))
 
-    static var originalTimeZone = NSTimeZone.default
+    static var originalTimeZone: TimeZone!
 
     override class func setUp() {
+        originalTimeZone = NSTimeZone.default
         NSTimeZone.default = TimeZone(abbreviation: "GMT+2")!
     }
 
