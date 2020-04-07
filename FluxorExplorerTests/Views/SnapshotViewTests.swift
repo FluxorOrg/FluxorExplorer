@@ -20,6 +20,16 @@ class SnapshotViewTests: XCTestCase {
                                                         newState: TestState(latestGreeting: "Hello"),
                                                         date: Date(timeIntervalSince1970: 1586294098))
 
+    static var originalTimeZone = NSTimeZone.default
+
+    override class func setUp() {
+        NSTimeZone.default = TimeZone(abbreviation: "GMT+2")!
+    }
+
+    override class func tearDown() {
+        NSTimeZone.default = originalTimeZone
+    }
+
     func testWithPayload() throws {
         // Given
         let view = SnapshotView(snapshot: snapshotWithPayload)
