@@ -14,14 +14,14 @@ class PeerSceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene else { return }
         guard let activity = connectionOptions.userActivities.first(where: {
             $0.activityType == SceneConfiguration.peer.activityIdentifier
         }) else {
             UIApplication.shared.requestSceneSessionDestruction(session, options: nil, errorHandler: nil)
             return
         }
-        guard let peerName = activity.userInfo?["peerName"] as? String,
+        guard let windowScene = scene as? UIWindowScene,
+            let peerName = activity.userInfo?["peerName"] as? String,
             let windowStore = Current.storeByPeers[peerName] else { return }
         windowScene.title = peerName
         let peerView = PeerView(store: windowStore)
