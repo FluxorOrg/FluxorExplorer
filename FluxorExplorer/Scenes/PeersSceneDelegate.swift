@@ -16,8 +16,9 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let peersView = PeersView()
-        windowScene.sizeRestrictions?.minimumSize = CGSize(width: 375, height: 700)
-        windowScene.sizeRestrictions?.maximumSize = CGSize(width: 375, height: 700)
+        let windowSize = CGSize(width: 375, height: 700)
+        windowScene.sizeRestrictions?.minimumSize = windowSize
+        windowScene.sizeRestrictions?.maximumSize = windowSize
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UIHostingController(rootView: peersView)
         self.window?.makeKeyAndVisible()
