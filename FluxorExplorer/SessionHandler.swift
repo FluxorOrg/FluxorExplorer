@@ -8,13 +8,18 @@ import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
 class SessionHandler: NSObject {
-    var peer = MCPeerID(displayName: UIDevice.current.name)
-    var session: MCSession!
-    var mcServiceBrowser: MCNearbyServiceBrowser!
+    private let peer: MCPeerID
+    private var session: MCSession?
+    private var mcServiceBrowser: MCNearbyServiceBrowser
+
+    override init() {
+        peer = MCPeerID(displayName: UIDevice.current.name)
+        mcServiceBrowser = MCNearbyServiceBrowser(peer: peer, serviceType: "fluxor-explorer")
+        super.init()
+        mcServiceBrowser.delegate = self
+    }
 
     func start() {
-        mcServiceBrowser = MCNearbyServiceBrowser(peer: peer, serviceType: "fluxor-explorer")
-        mcServiceBrowser.delegate = self
         mcServiceBrowser.startBrowsingForPeers()
     }
 }
@@ -22,24 +27,19 @@ class SessionHandler: NSObject {
 extension SessionHandler: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         switch state {
-        case MCSessionState.connected:
-            print("==MC== Session connected: \(peerID.displayName)")
+        case .connected:
             DispatchQueue.main.async {
                 Current.store.dispatch(action: PeerConnectedAction(peer: peerID))
             }
-        case MCSessionState.connecting:
-            print("==MC== Session connecting: \(peerID.displayName)")
-        case MCSessionState.notConnected:
-            print("==MC== Session not connected: \(peerID.displayName)")
+        case .notConnected:
             DispatchQueue.main.async {
                 Current.store.dispatch(action: PeerDisconnectedAction(peer: peerID))
             }
-        @unknown default: break
+        default: break
         }
     }
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("==MC== Session did receive data: \(data), from peer: \(peerID)")
         do {
             let snapshot = try JSONDecoder().decode(FluxorExplorerSnapshot.self, from: data)
             DispatchQueue.main.async {
@@ -65,17 +65,12 @@ extension SessionHandler: MCSessionDelegate {
 
 extension SessionHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
-        print("==MC== foundPeer", peerID)
-        session = MCSession(peer: peer, securityIdentity: nil, encryptionPreference: .none)
+        let session = MCSession(peer: peer, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
+        self.session = session
     }
 
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        print("==MC== lostPeer", peerID)
-    }
-
-    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        print("==MC== didNotStartBrowsingForPeers", error)
-    }
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {}
+    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {}
 }

@@ -6,13 +6,10 @@
 
 import Fluxor
 
-let windowReducer = createReducer { (state: inout WindowState, action) -> Void in
-    switch action {
-    case let action as DidReceiveSnapshotAction:
+let windowReducer = createReducer(
+    reduceOn(DidReceiveSnapshotAction.self) { (state: inout WindowState, action) in
         var snapshots = state.snapshots.snapshots
         snapshots.append(action.snapshot)
         state.snapshots.snapshots = snapshots
-    default:
-        ()
     }
-}
+)

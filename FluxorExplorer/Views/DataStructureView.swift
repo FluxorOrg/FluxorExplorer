@@ -106,7 +106,7 @@ struct DataStructureView: View {
             .foregroundColor(Color(.systemRed))
     }
 
-    struct Indentation {
+    private struct Indentation {
         let amount: Int
         var increased: Indentation { .init(amount: amount + 1) }
         var decreased: Indentation { .init(amount: amount - 1) }
