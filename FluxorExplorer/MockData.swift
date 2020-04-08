@@ -13,9 +13,9 @@ func setupMockData() {
     let peer1 = MCPeerID(displayName: "Peer 1")
     let peer2 = MCPeerID(displayName: "Peer 2")
     Current.store.register(reducer: createReducer(
-        reduceOn(ResetStateAction.self, reduce: { state, _ in
+        reduceOn(ResetStateAction.self) { state, _ in
             state = AppState()
-        })
+        }
     ))
     Current.store.dispatch(action: ResetStateAction())
     Current.store.dispatch(action: PeerConnectedAction(peer: peer1))
@@ -25,7 +25,6 @@ func setupMockData() {
         snapshot: FluxorExplorerSnapshot(action: TestAction(increment: 1),
                                          oldState: TestState(counter: 1),
                                          newState: TestState(counter: 2))))
-    print("Mock data setup")
 }
 
 private struct TestState: Encodable {
