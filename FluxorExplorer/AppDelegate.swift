@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
                      options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return SceneConfiguration.peer.sceneConfiguration
+        let peerConfiguration = SceneConfiguration.peer
+        if options.userActivities.contains(where: { $0.activityType == peerConfiguration.activityIdentifier }) {
+            return peerConfiguration.sceneConfiguration
+        } else {
+            return SceneConfiguration.default.sceneConfiguration
+        }
     }
 }
