@@ -25,7 +25,16 @@ class AppEffects: Effects {
         actions
             .ofType(DidReceiveSnapshotAction.self)
             .sink(receiveValue: { action in
-                Current.storeByPeers[action.peer.displayName]?.dispatch(action: action)
+                let peerName = action.peer.displayName
+                let windowStore: Store<WindowState>
+                if let theWindowStore = Current.storeByPeers[peerName] {
+                    windowStore = theWindowStore
+                } else {
+                    let initialState = WindowState(peer: PeerState(peerName: peerName))
+                    windowStore = Store(initialState: initialState, reducers: [windowReducer])
+                    Current.storeByPeers[peerName] = windowStore
+                }
+                windowStore.dispatch(action: action)
             })
     }
 }

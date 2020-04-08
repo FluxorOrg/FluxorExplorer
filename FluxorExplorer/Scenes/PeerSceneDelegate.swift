@@ -21,14 +21,10 @@ class PeerSceneDelegate: UIResponder, UIWindowSceneDelegate {
             UIApplication.shared.requestSceneSessionDestruction(session, options: nil, errorHandler: nil)
             return
         }
-        guard let peerName = activity.userInfo?["peerName"] as? String else { return }
-
+        guard let peerName = activity.userInfo?["peerName"] as? String,
+            let windowStore = Current.storeByPeers[peerName] else { return }
         windowScene.title = peerName
-        let initialState = WindowState(peer: PeerState(peerName: peerName))
-        let windowStore = Store(initialState: initialState, reducers: [windowReducer])
-        Current.storeByPeers[peerName] = windowStore
         let peerView = PeerView(store: windowStore)
-
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UIHostingController(rootView: peerView)
         self.window?.makeKeyAndVisible()
