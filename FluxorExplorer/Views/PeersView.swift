@@ -29,7 +29,7 @@ extension PeersView: View {
                     VStack {
                         Text("No devices connected")
                             .font(.headline)
-                        Text("Make sure the application is launched and the Intercepter is registered.")
+                        Text("Make sure the application is launched and the Interceptor is registered.")
                             .multilineTextAlignment(.center)
                             .padding()
                     }

@@ -21,7 +21,7 @@ class PeersViewTests: XCTestCase {
         let headline = try vStack.text(0).string()
         let body = try vStack.text(1).string()
         XCTAssertEqual(headline, "No devices connected")
-        XCTAssertEqual(body, "Make sure the application is launched and the Intercepter is registered.")
+        XCTAssertEqual(body, "Make sure the application is launched and the Interceptor is registered.")
     }
 
     func testPeers() throws {
