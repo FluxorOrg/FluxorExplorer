@@ -14,15 +14,26 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = scene as? UIWindowScene else { return }
         let peersView = PeersView()
-            .environmentObject(Current.store)
-        if let windowScene = scene as? UIWindowScene {
-            windowScene.sizeRestrictions?.minimumSize = CGSize(width: 375, height: 700)
-            windowScene.sizeRestrictions?.maximumSize = CGSize(width: 375, height: 700)
-            self.window = UIWindow(windowScene: windowScene)
-            self.window?.rootViewController = UIHostingController(rootView: peersView)
-            self.window?.makeKeyAndVisible()
-            self.sessionHandler.start()
+        let windowSize = CGSize(width: 375, height: 700)
+        windowScene.sizeRestrictions?.minimumSize = windowSize
+        windowScene.sizeRestrictions?.maximumSize = windowSize
+        self.window = UIWindow(windowScene: windowScene)
+        self.window?.rootViewController = UIHostingController(rootView: peersView)
+        self.window?.makeKeyAndVisible()
+        self.sessionHandler.start()
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        #if DEBUG
+        // When using scenes, the app isn't relaunched with the environment variable.
+        // So we set a user default, to ensure the mock data is setup on subsequent launches.
+        let defaultsKey = "STARTED_FROM_UI_TEST"
+        if ProcessInfo.processInfo.environment["UI_TESTING"] != nil || UserDefaults.standard.bool(forKey: defaultsKey) {
+            setupMockData()
+            UserDefaults.standard.set(true, forKey: defaultsKey)
         }
+        #endif
     }
 }
