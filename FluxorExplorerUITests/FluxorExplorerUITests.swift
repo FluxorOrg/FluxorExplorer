@@ -14,6 +14,7 @@ class FluxorExplorerUITests: XCTestCase {
     func testNavigation() {
         XCUIDevice.shared.orientation = .landscapeLeft
         let app = XCUIApplication()
+        app.launchEnvironment["UI_TESTING"] = "1"
         app.launch()
         // Select peer
         let peerButton = app.tables.buttons["Peer 1"]
