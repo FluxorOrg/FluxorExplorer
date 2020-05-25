@@ -736,7 +736,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS Distribution";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer Mac Distribution";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer MacCatalyst Distribution";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
