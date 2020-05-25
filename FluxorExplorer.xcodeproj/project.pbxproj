@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A0CF2A02464AFC0002EF8E3 /* FluxorExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorer.entitlements; sourceTree = "<group>"; };
 		5A13400A23D79B8F00B04A5E /* UIDevice+Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Mac.swift"; sourceTree = "<group>"; };
 		5A240295237B5E3100AD7007 /* FluxorExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxorExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A240298237B5E3100AD7007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		5A2402B6237B5E3600AD7007 /* FluxorExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2402BA237B5E3600AD7007 /* FluxorExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorExplorerUITests.swift; sourceTree = "<group>"; };
 		5A2402BC237B5E3600AD7007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorerRelease.entitlements; sourceTree = "<group>"; };
 		5A2FD680242D671A004F4DDB /* MCPeerID+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCPeerID+Extensions.swift"; sourceTree = "<group>"; };
 		5A3006D9243C51DE00B2B396 /* WindowSelectorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectorsTests.swift; sourceTree = "<group>"; };
 		5A3006DB243CA1CA00B2B396 /* WindowReducersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReducersTests.swift; sourceTree = "<group>"; };
@@ -115,7 +115,6 @@
 		5AA6C7AA2439FACA00ACAD74 /* PeersViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewTests.swift; sourceTree = "<group>"; };
 		5AA6C7AD243A022A00ACAD74 /* PeersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersViewModel.swift; sourceTree = "<group>"; };
 		5AA6C7AF243A025000ACAD74 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorerDebug.entitlements; sourceTree = "<group>"; };
 		5AE8AE5F242C1B6F0007FD9A /* MCPeerIDExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPeerIDExtensionsTests.swift; sourceTree = "<group>"; };
 		5AF6DA2323AEC9610039D3B2 /* SnapshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotsView.swift; sourceTree = "<group>"; };
 		5AF6DA2523AECC420039D3B2 /* SnapshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotView.swift; sourceTree = "<group>"; };
@@ -196,9 +195,8 @@
 				5A6A837E23ABB91000617693 /* SessionHandler.swift */,
 				5A24029E237B5E3500AD7007 /* Assets.xcassets */,
 				5A2402A3237B5E3500AD7007 /* LaunchScreen.storyboard */,
+				5A0CF2A02464AFC0002EF8E3 /* FluxorExplorer.entitlements */,
 				5A2402A6237B5E3500AD7007 /* Info.plist */,
-				5ACC2FC0242575B9002C8801 /* FluxorExplorerDebug.entitlements */,
-				5A2402C8237B5E5000AD7007 /* FluxorExplorerRelease.entitlements */,
 				5A2402A0237B5E3500AD7007 /* Preview Content */,
 				5A3006E1243DE5AC00B2B396 /* MockData.swift */,
 			);
@@ -699,7 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorerDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
@@ -723,9 +721,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorerRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = FluxorExplorer/FluxorExplorer.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -737,7 +735,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FluxorExplorer iOS Distribution";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "FluxorExplorer MacCatalyst Distribution";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
