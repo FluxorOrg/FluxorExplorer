@@ -10,3 +10,4 @@ fastlane/report.xml
 fastlane/test_output
 fastlane/Preview.html
 fastlane/screenshots/README.txt
+.env

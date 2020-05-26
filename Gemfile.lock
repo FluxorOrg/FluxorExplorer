@@ -173,6 +173,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   fastlane
 
 BUNDLED WITH
