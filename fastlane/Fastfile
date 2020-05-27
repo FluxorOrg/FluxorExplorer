@@ -1,7 +1,7 @@
 platform :mac do
   lane :release do
     increment_build_number(build_number: number_of_commits)
-    build_app(catalyst_platform: "macos", installer_cert_name: "3rd Party Mac Developer Installer: Morten Gregersen (R7YA4RGA8U)")
+    build_app(catalyst_platform: "macos", installer_cert_name: ENV["INSTALLER_CERT_NAME"])
     upload_to_app_store
   end
 end
