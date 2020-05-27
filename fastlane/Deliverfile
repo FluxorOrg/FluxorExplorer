@@ -1,0 +1,8 @@
+app_review_information({
+    first_name: 'Morten',
+    last_name: 'Bjerg Gregersen',
+    phone_number: ENV['PHONE_NUMBER'],
+    email_address: ENV['EMAIL_ADDRESS']
+})
+overwrite_screenshots(true)
+force(true)

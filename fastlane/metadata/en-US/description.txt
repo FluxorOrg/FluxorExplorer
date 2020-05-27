@@ -1,0 +1,3 @@
+FluxorExplorer lets you step through all the actions dispatched and the corresponding state changes, in an app using Fluxor. An invaluable tool for easily debugging the data flow of an app.
+
+When the FluxorExplorerInterceptor is registered in the Store, FluxorExplorer will automatically discover the app and connect.
