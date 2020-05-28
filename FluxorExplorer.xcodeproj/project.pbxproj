@@ -890,7 +890,7 @@
 			repositoryURL = "https://github.com/FluxorOrg/Fluxor.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 		5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */ = {
