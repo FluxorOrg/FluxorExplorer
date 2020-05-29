@@ -709,7 +709,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
-				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FluxorExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -732,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FluxorExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = R7YA4RGA8U;
-				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FluxorExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -902,7 +902,7 @@
 			repositoryURL = "https://github.com/FluxorOrg/FluxorExplorerSnapshot.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.1.0;
 			};
 		};
 		5AA6C7A62439F9C100ACAD74 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
