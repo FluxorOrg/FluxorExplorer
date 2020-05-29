@@ -9,6 +9,8 @@ import Fluxor
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
+// swiftlint:disable trailing_comma
+
 func setupMockData() {
     let peer1 = MCPeerID(displayName: "iPhone 11 Pro")
     let peer2 = MCPeerID(displayName: "iPhone 8")
