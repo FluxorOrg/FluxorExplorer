@@ -17,16 +17,16 @@ class FluxorExplorerUITests: XCTestCase {
         app.launchEnvironment["UI_TESTING"] = "1"
         app.launch()
         // Select peer
-        let peerButton = app.tables.buttons["Peer 1"]
+        let peerButton = app.tables.buttons["iPhone 11 Pro"]
         waitForElement(element: peerButton)
         peerButton.tap()
         // Select action
-        let predicate = NSPredicate(format: "label CONTAINS[c] 'TestAction'")
+        let predicate = NSPredicate(format: "label CONTAINS[c] 'CompleteTodoAction'")
         let actionButton = app.tables.buttons.containing(predicate).element(boundBy: 0)
         waitForElement(element: actionButton)
         actionButton.tap()
         // Go back
-        app.navigationBars["TestAction"].buttons["Snapshots"].tap()
+        app.navigationBars["CompleteTodoAction"].buttons["Snapshots"].tap()
     }
 }
 

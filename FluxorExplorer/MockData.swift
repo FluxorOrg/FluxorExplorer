@@ -75,7 +75,6 @@ private struct SampleAppState: Encodable {
 private struct TodosState: Encodable {
     var todos = [Todo]()
     var loadingTodos = false
-    var error: String?
 }
 
 private struct FetchTodosAction: Action {}
@@ -102,15 +101,9 @@ private struct DeleteTodoAction: Action {
 
 private struct ResetStateAction: Action {}
 
-private struct Todo: Codable, Identifiable, Equatable {
-    let id: UUID
+private struct Todo: Codable {
     let title: String
     var done = false
-
-    init(title: String) {
-        id = UUID()
-        self.title = title
-    }
 }
 
 #endif
