@@ -19,7 +19,7 @@ class SnapshotsViewTests: XCTestCase {
                      FluxorExplorerSnapshot(action: OtherTestAction(),
                                             oldState: TestState(counter: 2),
                                             newState: TestState(counter: 42))]
-    
+
     override func setUp() {
         super.setUp()
         store = Store(initialState: WindowState(peer: PeerState(peerName: "Some peer")), environment: AppEnvironment())
