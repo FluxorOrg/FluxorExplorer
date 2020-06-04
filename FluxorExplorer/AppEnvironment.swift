@@ -13,7 +13,7 @@ class AppEnvironment {
 
 struct Current {
     static var storeByPeers = [String: Store<WindowState, AppEnvironment>]()
-    static let store: Store<AppState, AppEnvironment> = {
+    static var store: Store<AppState, AppEnvironment> = {
         let store = Store(initialState: AppState(), environment: AppEnvironment())
         store.register(reducer: appReducer)
         store.register(effects: AppEffects())

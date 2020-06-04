@@ -7,6 +7,7 @@
 import Fluxor
 @testable import FluxorExplorer
 import FluxorExplorerSnapshot
+import FluxorTestSupport
 import MultipeerConnectivity
 import XCTest
 
@@ -17,15 +18,12 @@ class SessionHandlerTests: XCTestCase {
     let serviceType = "fluxor-explorer"
     var session: MCSession!
     var handler: SessionHandler!
-    var interceptor: TestInterceptor<AppState>!
-    var store: Store<AppState>!
+    var store: MockStore<AppState, AppEnvironment>!
 
     override func setUp() {
         session = .init(peer: peer)
         handler = .init()
-        store = .init(initialState: .init())
-        interceptor = .init()
-        store.register(interceptor: interceptor)
+        store = .init(initialState: .init(), environment: AppEnvironment())
         Current.store = store
     }
 
@@ -34,7 +32,7 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, peer: peer, didChange: .connected)
         // Then
         waitFor {
-            let action = self.interceptor.dispatchedActionsAndStates[0].action as! PeerConnectedAction
+            let action = self.store.stateChanges[0].action as! PeerConnectedAction
             XCTAssertEqual(action.peer, self.peer)
         }
     }
@@ -44,7 +42,7 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, peer: peer, didChange: .notConnected)
         // Then
         waitFor {
-            let action = self.interceptor.dispatchedActionsAndStates[0].action as! PeerDisconnectedAction
+            let action = self.store.stateChanges[0].action as! PeerDisconnectedAction
             XCTAssertEqual(action.peer, self.peer)
         }
     }
@@ -58,7 +56,7 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, didReceive: data, fromPeer: peer)
         // Then
         waitFor {
-            let action = self.interceptor.dispatchedActionsAndStates[0].action as! DidReceiveSnapshotAction
+            let action = self.store.stateChanges[0].action as! DidReceiveSnapshotAction
             XCTAssertEqual(action.peer, self.peer)
             XCTAssertEqual(action.snapshot, snapshot)
         }

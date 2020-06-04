@@ -14,35 +14,36 @@ import XCTest
 // swiftlint:disable force_cast
 
 class AppEffectsTests: XCTestCase {
-    func testOpenPeerWindow() {
+    func testOpenPeerWindow() throws {
         // Given
         let effects = AppEffects()
         let peer = MCPeerID(displayName: "Some peer")
         let mockApplication = MockApplication()
-        Current.application = mockApplication
+        let environment = AppEnvironment()
+        environment.application = mockApplication
         // When
-        effects.openPeerWindow.run(with: SelectPeerAction(peer: peer))
+        try EffectRunner.run(effects.openPeerWindow, with: SelectPeerAction(peer: peer), environment: environment)
         // Then
         let selectedDisplayName = mockApplication.userActivityForRequestedSceneSession!.userInfo!["peerName"] as! String
         XCTAssertEqual(selectedDisplayName, peer.displayName)
     }
 
-    func testRelayReceivedSnapshot() {
+    func testRelayReceivedSnapshot() throws {
         // Given
         let effects = AppEffects()
         let peer = MCPeerID(displayName: "Some peer")
+        let environment = AppEnvironment()
         let snapshot = FluxorExplorerSnapshot(action: TestAction(),
                                               oldState: TestState(counter: 42),
                                               newState: TestState(counter: 1337))
-        let store = MockStore(initialState: WindowState(peer: PeerState(peerName: peer.displayName)))
-        let interceptor = TestInterceptor<WindowState>()
-        store.register(interceptor: interceptor)
+        let store = MockStore(initialState: WindowState(peer: PeerState(peerName: peer.displayName)),
+                              environment: environment)
         Current.storeByPeers[peer.displayName] = store
         // When
         let didReceiveSnapshotAction = DidReceiveSnapshotAction(peer: peer, snapshot: snapshot)
-        effects.relayReceivedSnapshot.run(with: didReceiveSnapshotAction)
+        try EffectRunner.run(effects.relayReceivedSnapshot, with: didReceiveSnapshotAction, environment: environment)
         // Then
-        let dispatchedAction = interceptor.dispatchedActionsAndStates[0].action as! DidReceiveSnapshotAction
+        let dispatchedAction = store.stateChanges[0].action as! DidReceiveSnapshotAction
         XCTAssertEqual(dispatchedAction, didReceiveSnapshotAction)
     }
 }
