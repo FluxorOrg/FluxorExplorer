@@ -8,30 +8,34 @@ import Fluxor
 import UIKit
 
 class AppEffects: Effects {
-    let openPeerWindow = createEffectCreator { actions in
+    typealias Environment = AppEnvironment
+
+    let openPeerWindow = Effect<Environment>.nonDispatching { actions, environment in
         actions
             .ofType(SelectPeerAction.self)
             .sink(receiveValue: { action in
                 let userActivity = SceneConfiguration.peer.activity
                 userActivity.userInfo = ["peerName": action.peer.displayName]
-                Current.application.requestSceneSessionActivation(nil,
-                                                                  userActivity: userActivity,
-                                                                  options: nil,
-                                                                  errorHandler: nil)
+                environment.application.requestSceneSessionActivation(nil,
+                                                                      userActivity: userActivity,
+                                                                      options: nil,
+                                                                      errorHandler: nil)
             })
     }
 
-    let relayReceivedSnapshot = createEffectCreator { actions in
+    let relayReceivedSnapshot = Effect<Environment>.nonDispatching { actions, _ in
         actions
             .ofType(DidReceiveSnapshotAction.self)
             .sink(receiveValue: { action in
                 let peerName = action.peer.displayName
-                let windowStore: Store<WindowState>
+                let windowStore: Store<WindowState, AppEnvironment>
                 if let theWindowStore = Current.storeByPeers[peerName] {
                     windowStore = theWindowStore
                 } else {
                     let initialState = WindowState(peer: PeerState(peerName: peerName))
-                    windowStore = Store(initialState: initialState, reducers: [windowReducer])
+                    windowStore = Store(initialState: initialState,
+                                        environment: AppEnvironment(),
+                                        reducers: [windowReducer])
                     Current.storeByPeers[peerName] = windowStore
                 }
                 windowStore.dispatch(action: action)

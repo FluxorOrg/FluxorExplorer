@@ -7,19 +7,19 @@
 import Fluxor
 import UIKit
 
-struct AppEnvironment {
+class AppEnvironment {
     var application: UIApplicationProtocol = UIApplication.shared
-    var storeByPeers = [String: Store<WindowState>]()
-    var store: Store<AppState> = {
-        let store = Store(initialState: AppState())
+}
+
+struct Current {
+    static var storeByPeers = [String: Store<WindowState, AppEnvironment>]()
+    static let store: Store<AppState, AppEnvironment> = {
+        let store = Store(initialState: AppState(), environment: AppEnvironment())
         store.register(reducer: appReducer)
         store.register(effects: AppEffects())
         return store
     }()
 }
-
-// swiftlint:disable:next identifier_name
-var Current = AppEnvironment()
 
 // MARK: - Support mocking of UIApplication in tests
 

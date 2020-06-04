@@ -8,7 +8,7 @@ import Fluxor
 import SwiftUI
 
 struct PeerView: View {
-    let store: Store<WindowState>
+    let store: Store<WindowState, AppEnvironment>
 
     var body: some View {
         NavigationView {
@@ -20,6 +20,7 @@ struct PeerView: View {
 
 struct PeerView_Previews: PreviewProvider {
     static var previews: some View {
-        PeerView(store: Store(initialState: WindowState(peer: PeerState(peerName: "Some peer"))))
+        PeerView(store: Store(initialState: WindowState(peer: PeerState(peerName: "Some peer")),
+                              environment: AppEnvironment()))
     }
 }
