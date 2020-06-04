@@ -7,15 +7,15 @@
 import Fluxor
 
 class ViewModel<State: Encodable> {
-    let store: Store<State>
+    let store: Store<State, AppEnvironment>
 
-    init(store: Store<State>) {
+    init(store: Store<State, AppEnvironment>) {
         self.store = store
     }
 }
 
 extension ViewModel where State == AppState {
-    convenience init(appStore: Store<State> = Current.store) {
+    convenience init(appStore: Store<State, AppEnvironment> = Current.store) {
         self.init(store: appStore)
     }
 }

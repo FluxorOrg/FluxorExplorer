@@ -6,21 +6,19 @@
 
 import Fluxor
 @testable import FluxorExplorer
+import FluxorTestSupport
 import MultipeerConnectivity
 import XCTest
 
 // swiftlint:disable force_cast
 
 class PeersViewModelTests: XCTestCase {
-    var store: Store<AppState>!
-    var interceptor: TestInterceptor<AppState>!
+    var store: MockStore<AppState, AppEnvironment>!
     var model: PeersViewModel!
 
     override func setUp() {
         super.setUp()
-        interceptor = .init()
-        store = .init(initialState: AppState())
-        store.register(interceptor: interceptor)
+        store = .init(initialState: AppState(), environment: AppEnvironment())
         model = .init(store: store)
     }
 
@@ -30,7 +28,7 @@ class PeersViewModelTests: XCTestCase {
         // When
         model.select(peer: peer)
         // Then
-        let action = interceptor.dispatchedActionsAndStates[0].action as! SelectPeerAction
+        let action = store.stateChanges[0].action as! SelectPeerAction
         XCTAssertEqual(action.peer, peer)
     }
 }

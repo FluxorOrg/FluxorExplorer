@@ -6,8 +6,8 @@
 
 import Fluxor
 
-let windowReducer = createReducer(
-    reduceOn(DidReceiveSnapshotAction.self) { (state: inout WindowState, action) in
+let windowReducer = Reducer<WindowState>(
+    ReduceOn(DidReceiveSnapshotAction.self) { (state, action) in
         var snapshots = state.snapshots.snapshots
         snapshots.append(action.snapshot)
         state.snapshots.snapshots = snapshots

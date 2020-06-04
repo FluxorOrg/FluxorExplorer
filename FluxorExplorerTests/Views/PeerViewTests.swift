@@ -12,7 +12,9 @@ import XCTest
 class PeerViewTests: XCTestCase {
     func testDefaultText() throws {
         // Given
-        let view = PeerView(store: Store(initialState: WindowState(peer: PeerState(peerName: "Some peer"))))
+        let store = Store(initialState: WindowState(peer: PeerState(peerName: "Some peer")),
+                          environment: AppEnvironment())
+        let view = PeerView(store: store)
         // Then
         let navigationView = try view.inspect().navigationView()
         XCTAssertNotNil(try navigationView.view(SnapshotsView.self, 0))

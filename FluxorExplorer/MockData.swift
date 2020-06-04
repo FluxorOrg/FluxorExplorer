@@ -15,8 +15,8 @@ func setupMockData() {
     let peer1 = MCPeerID(displayName: "iPhone 11 Pro")
     let peer2 = MCPeerID(displayName: "iPhone 8")
     let snapshots = createSnapshots()
-    Current.store.register(reducer: createReducer(
-        reduceOn(ResetStateAction.self) { state, _ in
+    Current.store.register(reducer: Reducer(
+        ReduceOn(ResetStateAction.self) { state, _ in
             state = AppState()
         }
     ))

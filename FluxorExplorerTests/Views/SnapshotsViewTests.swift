@@ -12,13 +12,18 @@ import ViewInspector
 import XCTest
 
 class SnapshotsViewTests: XCTestCase {
-    let store = Store(initialState: WindowState(peer: PeerState(peerName: "Some peer")))
+    var store: Store<WindowState, AppEnvironment>!
     let snapshots = [FluxorExplorerSnapshot(action: TestAction(),
                                             oldState: TestState(counter: 1),
                                             newState: TestState(counter: 2)),
                      FluxorExplorerSnapshot(action: OtherTestAction(),
                                             oldState: TestState(counter: 2),
                                             newState: TestState(counter: 42))]
+
+    override func setUp() {
+        super.setUp()
+        store = Store(initialState: WindowState(peer: PeerState(peerName: "Some peer")), environment: AppEnvironment())
+    }
 
     func testNoSnapshots() throws {
         // Given

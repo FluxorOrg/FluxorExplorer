@@ -7,6 +7,6 @@
 import Fluxor
 
 extension Selectors {
-    static let getSnapshotsState = createRootSelector(keyPath: \WindowState.snapshots)
-    static let getSnapshots = createSelector(getSnapshotsState) { $0.snapshots }
+    static let getSnapshotsState = Selector(keyPath: \WindowState.snapshots)
+    static let getSnapshots = Selector.with(getSnapshotsState) { $0.snapshots }
 }
