@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/FluxorOrg/Fluxor.git",
         "state": {
           "branch": null,
-          "revision": "8ba79ce406138938229c22c6d91932fe11a54f5c",
-          "version": "1.0.0"
+          "revision": "35b2a6aba3f768deb75f1dd1ab468438e4dd5c90",
+          "version": "3.0.0"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerSnapshot.git",
         "state": {
           "branch": null,
-          "revision": "0be00ca3d6096f93f8c63b142c6803464c26e748",
-          "version": "1.1.0"
+          "revision": "7b1d5676227b31e41a795a9210df396e5d04e4e6",
+          "version": "3.0.0"
         }
       },
       {

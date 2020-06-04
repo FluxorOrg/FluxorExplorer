@@ -890,7 +890,7 @@
 			repositoryURL = "https://github.com/FluxorOrg/Fluxor.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 		5A838C452439355D00EAE9ED /* XCRemoteSwiftPackageReference "FluxorExplorerSnapshot" */ = {
@@ -898,7 +898,7 @@
 			repositoryURL = "https://github.com/FluxorOrg/FluxorExplorerSnapshot.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 		5AA6C7A62439F9C100ACAD74 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
@@ -906,7 +906,7 @@
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.9;
+				minimumVersion = 0.3.11;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
