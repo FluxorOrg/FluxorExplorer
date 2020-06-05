@@ -65,6 +65,16 @@
                ReferencedContainer = "container:FluxorExplorer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A5FECD7248AD6AF00AD7D28"
+               BuildableName = "FluxorExplorerScreenshots.xctest"
+               BlueprintName = "FluxorExplorerScreenshots"
+               ReferencedContainer = "container:FluxorExplorer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
