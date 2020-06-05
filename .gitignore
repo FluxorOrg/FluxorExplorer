@@ -11,3 +11,4 @@ fastlane/test_output
 fastlane/Preview.html
 fastlane/screenshots/README.txt
 .env
+screenshots/screenshots.html

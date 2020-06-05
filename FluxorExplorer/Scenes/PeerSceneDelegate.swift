@@ -28,5 +28,12 @@ class PeerSceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UIHostingController(rootView: peerView)
         self.window?.makeKeyAndVisible()
+//        if ProcessInfo.processInfo.environment["UI_TESTING"] != nil {
+//            if let session = UIApplication.shared.windows
+//                .compactMap({ $0.windowScene?.session })
+//                .first(where: { $0.configuration.name == "Default Configuration" }) {
+//                UIApplication.shared.requestSceneSessionDestruction(session, options: nil, errorHandler: nil)
+//            }
+//        }
     }
 }
