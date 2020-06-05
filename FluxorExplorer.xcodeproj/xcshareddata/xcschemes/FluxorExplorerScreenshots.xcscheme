@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1150"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -9,14 +9,28 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A240294237B5E3100AD7007"
                BuildableName = "FluxorExplorer.app"
                BlueprintName = "FluxorExplorer"
+               ReferencedContainer = "container:FluxorExplorer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A2402B5237B5E3600AD7007"
+               BuildableName = "FluxorExplorerUITests.xctest"
+               BlueprintName = "FluxorExplorerUITests"
                ReferencedContainer = "container:FluxorExplorer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,37 +40,10 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      language = "en"
-      region = "US"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5A240294237B5E3100AD7007"
-            BuildableName = "FluxorExplorer.app"
-            BlueprintName = "FluxorExplorer"
-            ReferencedContainer = "container:FluxorExplorer.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A2402AA237B5E3600AD7007"
-               BuildableName = "FluxorExplorerTests.xctest"
-               BlueprintName = "FluxorExplorerTests"
-               ReferencedContainer = "container:FluxorExplorer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A2402B5237B5E3600AD7007"
@@ -94,16 +81,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5A240294237B5E3100AD7007"
-            BuildableName = "FluxorExplorer.app"
-            BlueprintName = "FluxorExplorer"
-            ReferencedContainer = "container:FluxorExplorer.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

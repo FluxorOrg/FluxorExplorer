@@ -12,10 +12,13 @@ class FluxorExplorerUITests: XCTestCase {
     }
 
     func testNavigation() {
+        #if !targetEnvironment(macCatalyst)
         XCUIDevice.shared.orientation = .landscapeLeft
+        #endif
         let app = XCUIApplication()
         app.launchEnvironment["UI_TESTING"] = "1"
         app.launch()
+        setupSnapshot(app)
         // Select peer
         let peerButton = app.tables.buttons["iPhone 11 Pro"]
         waitForElement(element: peerButton)
@@ -25,8 +28,8 @@ class FluxorExplorerUITests: XCTestCase {
         let actionButton = app.tables.buttons.containing(predicate).element(boundBy: 0)
         waitForElement(element: actionButton)
         actionButton.tap()
-        // Go back
-        app.navigationBars["CompleteTodoAction"].buttons["Snapshots"].tap()
+        // Take screenshot
+        snapshot("1-Selected-Action")
     }
 }
 

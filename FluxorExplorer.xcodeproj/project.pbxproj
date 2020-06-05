@@ -29,7 +29,7 @@
 		5A519EE023D7A67300B4F1CA /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EDF23D7A67300B4F1CA /* WindowState.swift */; };
 		5A519EE223D7A8C700B4F1CA /* WindowReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EE123D7A8C700B4F1CA /* WindowReducers.swift */; };
 		5A519EE423D7A94E00B4F1CA /* WindowSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519EE323D7A94E00B4F1CA /* WindowSelectors.swift */; };
-		5A5FECDB248AD6AF00AD7D28 /* FluxorExplorerScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FECDA248AD6AF00AD7D28 /* FluxorExplorerScreenshots.swift */; };
+		5A5FECE3248ADD6D00AD7D28 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FECE2248ADD6D00AD7D28 /* SnapshotHelper.swift */; };
 		5A6A837D23ABB76B00617693 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A837C23ABB76B00617693 /* AppEnvironment.swift */; };
 		5A6A837F23ABB91000617693 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A837E23ABB91000617693 /* SessionHandler.swift */; };
 		5A6A838223ABB9BF00617693 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A838123ABB9BF00617693 /* AppState.swift */; };
@@ -71,16 +71,10 @@
 			remoteGlobalIDString = 5A240294237B5E3100AD7007;
 			remoteInfo = FluxorExplorer;
 		};
-		5A5FECDD248AD6AF00AD7D28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A24028D237B5E3100AD7007 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A240294237B5E3100AD7007;
-			remoteInfo = FluxorExplorer;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A013794248AE4B100753907 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		5A0CF2A02464AFC0002EF8E3 /* FluxorExplorer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorExplorer.entitlements; sourceTree = "<group>"; };
 		5A13400A23D79B8F00B04A5E /* UIDevice+Mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Mac.swift"; sourceTree = "<group>"; };
 		5A240295237B5E3100AD7007 /* FluxorExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxorExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,9 +106,9 @@
 		5A519EE323D7A94E00B4F1CA /* WindowSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectors.swift; sourceTree = "<group>"; };
 		5A5A8D66247DC30C0090C9CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5A5A8D68247DC30C0090C9CE /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		5A5FECD8248AD6AF00AD7D28 /* FluxorExplorerScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorExplorerScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5FECDA248AD6AF00AD7D28 /* FluxorExplorerScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorExplorerScreenshots.swift; sourceTree = "<group>"; };
 		5A5FECDC248AD6AF00AD7D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5FECE2248ADD6D00AD7D28 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		5A6A837C23ABB76B00617693 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		5A6A837E23ABB91000617693 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		5A6A838123ABB9BF00617693 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -163,13 +157,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A5FECD5248AD6AF00AD7D28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -190,6 +177,7 @@
 				5A2402B9237B5E3600AD7007 /* FluxorExplorerUITests */,
 				5A5FECD9248AD6AF00AD7D28 /* FluxorExplorerScreenshots */,
 				5A240296237B5E3100AD7007 /* Products */,
+				5A013794248AE4B100753907 /* fastlane */,
 				5A5A8D68247DC30C0090C9CE /* LICENSE */,
 				5A5A8D66247DC30C0090C9CE /* README.md */,
 			);
@@ -201,7 +189,6 @@
 				5A240295237B5E3100AD7007 /* FluxorExplorer.app */,
 				5A2402AB237B5E3600AD7007 /* FluxorExplorerTests.xctest */,
 				5A2402B6237B5E3600AD7007 /* FluxorExplorerUITests.xctest */,
-				5A5FECD8248AD6AF00AD7D28 /* FluxorExplorerScreenshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +239,7 @@
 		5A2402B9237B5E3600AD7007 /* FluxorExplorerUITests */ = {
 			isa = PBXGroup;
 			children = (
+				5A5FECE2248ADD6D00AD7D28 /* SnapshotHelper.swift */,
 				5A2402BA237B5E3600AD7007 /* FluxorExplorerUITests.swift */,
 				5A2402BC237B5E3600AD7007 /* Info.plist */,
 			);
@@ -449,24 +437,6 @@
 			productReference = 5A2402B6237B5E3600AD7007 /* FluxorExplorerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		5A5FECD7248AD6AF00AD7D28 /* FluxorExplorerScreenshots */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A5FECE1248AD6AF00AD7D28 /* Build configuration list for PBXNativeTarget "FluxorExplorerScreenshots" */;
-			buildPhases = (
-				5A5FECD4248AD6AF00AD7D28 /* Sources */,
-				5A5FECD5248AD6AF00AD7D28 /* Frameworks */,
-				5A5FECD6248AD6AF00AD7D28 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5A5FECDE248AD6AF00AD7D28 /* PBXTargetDependency */,
-			);
-			name = FluxorExplorerScreenshots;
-			productName = FluxorExplorerScreenshots;
-			productReference = 5A5FECD8248AD6AF00AD7D28 /* FluxorExplorerScreenshots.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -486,10 +456,6 @@
 					};
 					5A2402B5237B5E3600AD7007 = {
 						CreatedOnToolsVersion = 11.2;
-						TestTargetID = 5A240294237B5E3100AD7007;
-					};
-					5A5FECD7248AD6AF00AD7D28 = {
-						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 5A240294237B5E3100AD7007;
 					};
 				};
@@ -515,7 +481,6 @@
 				5A240294237B5E3100AD7007 /* FluxorExplorer */,
 				5A2402AA237B5E3600AD7007 /* FluxorExplorerTests */,
 				5A2402B5237B5E3600AD7007 /* FluxorExplorerUITests */,
-				5A5FECD7248AD6AF00AD7D28 /* FluxorExplorerScreenshots */,
 			);
 		};
 /* End PBXProject section */
@@ -539,13 +504,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5A2402B4237B5E3600AD7007 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A5FECD6248AD6AF00AD7D28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,14 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A2402BB237B5E3600AD7007 /* FluxorExplorerUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A5FECD4248AD6AF00AD7D28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A5FECDB248AD6AF00AD7D28 /* FluxorExplorerScreenshots.swift in Sources */,
+				5A5FECE3248ADD6D00AD7D28 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,11 +586,6 @@
 			isa = PBXTargetDependency;
 			target = 5A240294237B5E3100AD7007 /* FluxorExplorer */;
 			targetProxy = 5A2402B7237B5E3600AD7007 /* PBXContainerItemProxy */;
-		};
-		5A5FECDE248AD6AF00AD7D28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5A240294237B5E3100AD7007 /* FluxorExplorer */;
-			targetProxy = 5A5FECDD248AD6AF00AD7D28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -791,6 +737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fluxor.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -810,6 +757,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fluxor.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -865,26 +813,6 @@
 			};
 			name = Release;
 		};
-		5A5FECDF248AD6AF00AD7D28 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = FluxorExplorerScreenshots/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerScreenshots;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = FluxorExplorer;
-			};
-			name = Debug;
-		};
-		5A5FECE0248AD6AF00AD7D28 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = FluxorExplorerScreenshots/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorExplorerScreenshots;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = FluxorExplorer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -920,15 +848,6 @@
 			buildConfigurations = (
 				5A2402C6237B5E3600AD7007 /* Debug */,
 				5A2402C7237B5E3600AD7007 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5A5FECE1248AD6AF00AD7D28 /* Build configuration list for PBXNativeTarget "FluxorExplorerScreenshots" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A5FECDF248AD6AF00AD7D28 /* Debug */,
-				5A5FECE0248AD6AF00AD7D28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

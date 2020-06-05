@@ -1,0 +1,13 @@
+devices([
+  "iPad Pro (9.7-inch)",
+  "iPad (7th generation)",
+  "iPad Pro (11-inch) (2nd generation)",
+  "iPad Pro (12.9-inch) (4th generation)",
+  "iPad Air (3rd generation)"
+])
+languages(["en-US"])
+scheme("FluxorExplorerScreenshots")
+output_directory("./screenshots")
+clear_previous_screenshots(true)
+override_status_bar(true)
+dark_mode(true)
