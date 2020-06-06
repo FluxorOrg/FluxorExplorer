@@ -5,9 +5,6 @@
 	</p>
 	<img src="https://img.shields.io/badge/platforms-Mac+iOS-brightgreen.svg" alt="Platform: Mac+iOS">
 	<img src="https://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Swift 5.2">
-	<a href="https://swift.org/package-manager">
-		<img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="Swift Package Manager compatible">
-	</a>
 	<a href="https://twitter.com/mortengregersen">
 		<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
 	</a>
