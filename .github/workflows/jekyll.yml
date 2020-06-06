@@ -17,5 +17,5 @@ jobs:
       run: |
         mv Assets assets
         sed -i 's/Assets/assets/g' README.md
-    - name: jekyll-deploy
-      uses: DavidS/jekyll-deploy@1
+    - name: Build and Deploy
+      uses: helaili/jekyll-action@2.0.3
