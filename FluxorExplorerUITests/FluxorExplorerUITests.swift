@@ -12,7 +12,9 @@ class FluxorExplorerUITests: XCTestCase {
     }
 
     func testNavigation() {
+        #if !targetEnvironment(macCatalyst)
         XCUIDevice.shared.orientation = .landscapeLeft
+        #endif
         let app = XCUIApplication()
         app.launchEnvironment["UI_TESTING"] = "1"
         app.launch()
@@ -25,8 +27,6 @@ class FluxorExplorerUITests: XCTestCase {
         let actionButton = app.tables.buttons.containing(predicate).element(boundBy: 0)
         waitForElement(element: actionButton)
         actionButton.tap()
-        // Go back
-        app.navigationBars["CompleteTodoAction"].buttons["Snapshots"].tap()
     }
 }
 

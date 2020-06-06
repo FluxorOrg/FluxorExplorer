@@ -14,9 +14,9 @@ enum SceneConfiguration {
 
     var activity: NSUserActivity { NSUserActivity(activityType: activityIdentifier) }
 
-    var configurationName: String { self == .default ? "Default Configuration" : "Peer Configuration" }
+    var configurationName: String { self == .default ? "Peers Configuration" : "Peer Configuration" }
 
     var sceneConfiguration: UISceneConfiguration {
-        UISceneConfiguration(name: configurationName, sessionRole: .windowApplication)
+        .init(name: configurationName, sessionRole: .windowApplication)
     }
 }
