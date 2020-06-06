@@ -1,10 +1,12 @@
-name: Jekyll site CI
+name: Build and Deploy Page
 
 on:
   push:
-    branches: [ master ]
+    branches:
+    - master
   pull_request:
-    branches: [ master ]
+    branches:
+    - master
 
 jobs:
   build:
