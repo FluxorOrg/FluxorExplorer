@@ -14,9 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Fix paths
-      run: |
-        mv Assets assets
-        sed -i 's/Assets/assets/g' README.md
+      run: mv Assets assets
     - name: Build and Deploy
       uses: helaili/jekyll-action@2.0.3
       env:
