@@ -8,16 +8,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var shouldActivateOnNextLaunch = false
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-//        if shouldActivateOnNextLaunch {
-//            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: SceneConfiguration.default.activity, options: nil, errorHandler: nil)
-//            shouldActivateOnNextLaunch = false
-//        }
-        return true
-    }
-
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
                      options: UIScene.ConnectionOptions) -> UISceneConfiguration {

@@ -25,13 +25,6 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.sessionHandler.start()
     }
 
-//    func sceneWillResignActive(_ scene: UIScene) {
-//        if ProcessInfo.processInfo.environment["UI_TESTING"] != nil {
-//            UIApplication.shared.requestSceneSessionDestruction(scene.session, options: nil, errorHandler: nil)
-//            (UIApplication.shared.delegate as! AppDelegate).shouldActivateOnNextLaunch = true
-//        }
-//    }
-
     func sceneWillEnterForeground(_ scene: UIScene) {
         if self.startedFromUITest {
             setupMockData()
