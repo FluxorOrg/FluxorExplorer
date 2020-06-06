@@ -26,21 +26,14 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        if self.startedFromUITest {
-            setupMockData()
-        }
-    }
-
-    private var startedFromUITest: Bool {
         #if DEBUG
         // When using scenes, the app isn't relaunched with the environment variable.
         // So we set a user default, to ensure the mock data is setup on subsequent launches.
         let defaultsKey = "STARTED_FROM_UI_TEST"
         if ProcessInfo.processInfo.environment["UI_TESTING"] != nil || UserDefaults.standard.bool(forKey: defaultsKey) {
+            setupMockData()
             UserDefaults.standard.set(true, forKey: defaultsKey)
-            return true
         }
         #endif
-        return false
     }
 }
