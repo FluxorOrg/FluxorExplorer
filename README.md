@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/assets/MacIcon-256.png" alt="">
+	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/MacIcon-256.png" alt="">
 	<h1>FluxorExplorer</h1>
 	<p style="font-weight: bold">A macOS and iPadOS app for debugging apps using <a href="https://github.com/FluxorOrg/Fluxor">Fluxor</a>.
 	</p>
@@ -20,7 +20,7 @@
 	</a>
 </div>
 
-![](https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/assets/FluxorExplorer.png)
+![](https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/FluxorExplorer.png)
 
 FluxorExplorer allows developers of apps using Fluxor, to step through the actions dispatched and the corresponding state changes, to easily debug the data flow of their app.
 
