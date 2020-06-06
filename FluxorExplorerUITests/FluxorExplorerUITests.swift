@@ -31,7 +31,7 @@ class FluxorExplorerUITests: XCTestCase {
 }
 
 extension XCTestCase {
-    public func waitForElement(element: XCUIElement, timeout: TimeInterval = 35) {
+    public func waitForElement(element: XCUIElement, timeout: TimeInterval = 5) {
         let exists = NSPredicate(format: "exists == true")
         expectation(for: exists, evaluatedWith: element, handler: nil)
         waitForExpectations(timeout: timeout, handler: nil)
