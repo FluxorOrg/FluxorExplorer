@@ -1,0 +1,19 @@
+name: Build and Deploy to Pages
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Fix paths
+      run: mv Assets assets
+    - name: Build and Deploy
+      uses: helaili/jekyll-action@2.0.3
+      env:
+        JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
+        JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_PAT }}
