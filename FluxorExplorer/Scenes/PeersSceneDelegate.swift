@@ -14,6 +14,12 @@ class PeersSceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
+        guard !UIApplication.shared.windows
+            .compactMap({ $0.windowScene?.session })
+            .contains(where: { $0.configuration.name == SceneConfiguration.default.configurationName }) else {
+            UIApplication.shared.requestSceneSessionDestruction(session, options: nil, errorHandler: nil)
+            return
+        }
         guard let windowScene = scene as? UIWindowScene else { return }
         let peersView = PeersView()
         let windowSize = CGSize(width: 375, height: 700)
