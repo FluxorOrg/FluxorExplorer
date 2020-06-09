@@ -2,7 +2,9 @@
 	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/MacIcon-256.png" alt="">
 	<h1>FluxorExplorer</h1>
 	<p style="font-weight: bold">
-		<a href="https://apps.apple.com/us/app/fluxorexplorer/id1515805273?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-06-08&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"></a>
+		<a href="https://apps.apple.com/us/app/fluxorexplorer/id1515805273?mt=8">
+			<img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-06-08&kind=iossoftware&bubble=ios_apps" style="width: 135px; height: 40px" alt="Download on the App Store" />
+		</a>
 		<br />
 		A macOS and iPadOS app for debugging apps using <a href="https://fluxor.dev">Fluxor</a>.
 	</p>
