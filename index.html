@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/FluxorExplorer/assets/css/style.css?v=94efca1a4db0912baa938780627fb7074c6f4ca2">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FluxorExplorer | A macOS and iPadOS app for debugging apps using Fluxor</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="FluxorExplorer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A macOS and iPadOS app for debugging apps using Fluxor" />
+<meta property="og:description" content="A macOS and iPadOS app for debugging apps using Fluxor" />
+<link rel="canonical" href="https://fluxororg.github.io/FluxorExplorer/" />
+<meta property="og:url" content="https://fluxororg.github.io/FluxorExplorer/" />
+<meta property="og:site_name" content="FluxorExplorer" />
+<script type="application/ld+json">
+{"headline":"FluxorExplorer","url":"https://fluxororg.github.io/FluxorExplorer/","description":"A macOS and iPadOS app for debugging apps using Fluxor","@type":"WebSite","name":"FluxorExplorer","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+          <a id="forkme_banner" href="https://github.com/FluxorOrg/FluxorExplorer">View on GitHub</a>
+        
+        <div align="center">
+	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/MacIcon-256.png" alt="" />
+	<h1>FluxorExplorer</h1>
+	<p style="font-weight: bold">
+		<a href="https://apps.apple.com/us/app/fluxorexplorer/id1515805273?mt=8">
+			<img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-06-08&amp;kind=iossoftware&amp;bubble=ios_apps" style="width: 135px; height: 40px" alt="Download on the App Store" />
+		</a>
+		<br />
+		A macOS and iPadOS app for debugging apps using <a href="https://fluxor.dev">Fluxor</a>.
+	</p>
+	<p>
+		<img src="https://img.shields.io/badge/platforms-Mac+iPadOS-brightgreen.svg" alt="Platform: Mac+iOS" />
+		<img src="https://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Swift 5.2" />
+		<a href="https://twitter.com/mortengregersen">
+			<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen" />
+		</a>
+		<br />
+		<a href="https://app.bitrise.io/app/635aaa9da78fe2ea">
+			<img src="https://app.bitrise.io/app/635aaa9da78fe2ea/status.svg?token=caKliqXorMigOCRwS8tFqw&amp;branch=master" alt="Build Status" />
+		</a>
+		<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/maintainability">
+			<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/maintainability" alt="Maintainability" />
+		</a>
+		<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/test_coverage">
+			<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/test_coverage" alt="Test Coverage" />
+		</a>
+	</p>
+</div>
+
+<p><img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/FluxorExplorer.png" alt="" /></p>
+
+<p>FluxorExplorer allows developers of apps using Fluxor, to step through the actions dispatched and the corresponding state changes, to easily debug the data flow of their app.</p>
+
+<h2 id="-make-your-app-talk">🗣 Make your app talk</h2>
+
+<p>The only thing you need to do, to make your app send out the dispatched actions and state changes, is to register the <a href="https://github.com/FluxorOrg/FluxorExplorerInterceptor">FluxorExplorerInterceptor</a> in the store:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">store</span> <span class="o">=</span> <span class="kt">Store</span><span class="p">(</span><span class="nv">initialState</span><span class="p">:</span> <span class="kt">AppState</span><span class="p">())</span>
+<span class="cp">#if DEBUG</span>
+<span class="n">store</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">interceptor</span><span class="p">:</span> <span class="kt">FluxorExplorerInterceptor</span><span class="p">(</span><span class="nv">displayName</span><span class="p">:</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="cp">#endif</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> It is recommended that the FluxorExplorerInterceptor is only registered in debug builds.</p>
+
+<h2 id="-how-does-it-connect">🔌 How does it connect?</h2>
+
+<p>FluxorExplorer and FluxorExplorerInterceptor uses Apple’s <a href="https://developer.apple.com/documentation/multipeerconnectivity">MultipeerConnectivity</a> framework to connect and communicate.</p>
+
+<ol>
+  <li>When FluxorExplorer is launched, it instantiates a <a href="https://developer.apple.com/documentation/multipeerconnectivity/mcnearbyservicebrowser"><code class="language-plaintext highlighter-rouge">MCNearbyServiceBrowser</code></a> and starts browsing for peers.</li>
+  <li>When a FluxorExplorerInterceptor is instantiated a <a href="https://developer.apple.com/documentation/multipeerconnectivity/mcnearbyserviceadvertiser"><code class="language-plaintext highlighter-rouge">MCNearbyServiceAdvertiser</code></a> and starts advertising.</li>
+  <li>When FluxorExplorer discovers an advertising peer it automatically sends an invite to the peer</li>
+  <li>When the advertising FluxorExplorerInterceptor receives an invite, it automatically accepts it</li>
+</ol>
+
+<p>This means that as long as FluxorExplorer and the app using FluxorExplorerInterceptor is on the same network, they will automatically connect and send/receive data.</p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">FluxorExplorer maintained by <a href="https://github.com/FluxorOrg">FluxorOrg</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
