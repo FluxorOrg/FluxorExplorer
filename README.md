@@ -1,23 +1,30 @@
 <div align="center">
 	<img src="https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/MacIcon-256.png" alt="">
 	<h1>FluxorExplorer</h1>
-	<p style="font-weight: bold">A macOS and iPadOS app for debugging apps using <a href="https://github.com/FluxorOrg/Fluxor">Fluxor</a>.
+	<p style="font-weight: bold">
+		<a href="https://apps.apple.com/us/app/fluxorexplorer/id1515805273?mt=8">
+			<img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-06-08&kind=iossoftware&bubble=ios_apps" style="width: 135px; height: 40px" alt="Download on the App Store" />
+		</a>
+		<br />
+		A macOS and iPadOS app for debugging apps using <a href="https://fluxor.dev">Fluxor</a>.
 	</p>
-	<img src="https://img.shields.io/badge/platforms-Mac+iOS-brightgreen.svg" alt="Platform: Mac+iOS">
-	<img src="https://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Swift 5.2">
-	<a href="https://twitter.com/mortengregersen">
-		<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
-	</a>
-	<br />
-	<a href="https://app.bitrise.io/app/635aaa9da78fe2ea">
-		<img src="https://app.bitrise.io/app/635aaa9da78fe2ea/status.svg?token=caKliqXorMigOCRwS8tFqw&branch=master" alt="Build Status" />
-	</a>
-	<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/maintainability">
-		<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/maintainability" alt="Maintainability" />
-	</a>
-	<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/test_coverage">
-		<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/test_coverage" alt="Test Coverage" />
-	</a>
+	<p>
+		<img src="https://img.shields.io/badge/platforms-Mac+iPadOS-brightgreen.svg" alt="Platform: Mac+iOS">
+		<img src="https://img.shields.io/badge/Swift-5.2-brightgreen.svg" alt="Swift 5.2">
+		<a href="https://twitter.com/mortengregersen">
+			<img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
+		</a>
+		<br />
+		<a href="https://app.bitrise.io/app/635aaa9da78fe2ea">
+			<img src="https://app.bitrise.io/app/635aaa9da78fe2ea/status.svg?token=caKliqXorMigOCRwS8tFqw&branch=master" alt="Build Status" />
+		</a>
+		<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/maintainability">
+			<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/maintainability" alt="Maintainability" />
+		</a>
+		<a href="https://codeclimate.com/github/FluxorOrg/FluxorExplorer/test_coverage">
+			<img src="https://api.codeclimate.com/v1/badges/2eb653fd95cde6754b33/test_coverage" alt="Test Coverage" />
+		</a>
+	</p>
 </div>
 
 ![](https://raw.githubusercontent.com/FluxorOrg/FluxorExplorer/master/Assets/FluxorExplorer.png)
