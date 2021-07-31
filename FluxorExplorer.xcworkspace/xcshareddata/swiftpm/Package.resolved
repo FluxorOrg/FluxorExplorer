@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Fluxor",
-        "repositoryURL": "https://github.com/FluxorOrg/Fluxor.git",
+        "repositoryURL": "https://github.com/FluxorOrg/Fluxor",
         "state": {
           "branch": null,
           "revision": "35b2a6aba3f768deb75f1dd1ab468438e4dd5c90",
