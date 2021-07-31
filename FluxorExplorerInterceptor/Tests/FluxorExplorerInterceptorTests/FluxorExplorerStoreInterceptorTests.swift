@@ -10,6 +10,8 @@ import FluxorExplorerSnapshot
 import MultipeerConnectivity
 import XCTest
 
+// swiftlint:disable force_try
+
 class FluxorExplorerInterceptorTests: XCTestCase {
     var interceptor: FluxorExplorerInterceptor<State>!
     var localPeerID: MCPeerID!

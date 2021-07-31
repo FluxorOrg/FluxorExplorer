@@ -22,10 +22,12 @@ public struct FluxorExplorerSnapshot: Codable, Equatable {
         actionData = .init(action)
         let encoder = JSONEncoder()
         let decoder = JSONDecoder()
+        // swiftlint:disable force_try
         let encodedOldState = try! encoder.encode(oldState)
         self.oldState = try! decoder.decode([String: AnyCodable].self, from: encodedOldState)
         let encodedNewState = try! encoder.encode(newState)
         self.newState = try! decoder.decode([String: AnyCodable].self, from: encodedNewState)
+        // swiftlint:enable force_try
         self.date = date
     }
 
