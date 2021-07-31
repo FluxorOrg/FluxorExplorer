@@ -33,7 +33,7 @@ FluxorExplorer allows developers of apps using Fluxor, to step through the actio
 
 ## 🗣 Make your app talk
 
-The only thing you need to do, to make your app send out the dispatched actions and state changes, is to register the [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorerInterceptor) in the store:
+The only thing you need to do, to make your app send out the dispatched actions and state changes, is to register the [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorer/tree/master/FluxorExplorerInterceptor) in the store:
 
 ```swift
 let store = Store(initialState: AppState())

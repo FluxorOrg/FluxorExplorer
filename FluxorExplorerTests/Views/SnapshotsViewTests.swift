@@ -44,7 +44,7 @@ class SnapshotsViewTests: XCTestCase {
         try snapshots.indices.forEach {
             let navigationLink = try listElements.navigationLink($0)
             XCTAssertEqual(try navigationLink.view(SnapshotView.self).actualView().snapshot, snapshots[$0])
-            XCTAssertEqual(try navigationLink.label().hStack().text(0).string(),
+            XCTAssertEqual(try navigationLink.labelView().hStack().text(0).string(),
                            snapshots[$0].actionData.name)
         }
     }
