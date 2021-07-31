@@ -864,7 +864,7 @@
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.11;
+				minimumVersion = 0.8.1;
 			};
 		};
 		5ACBDBF226B5E45100B55586 /* XCRemoteSwiftPackageReference "Fluxor" */ = {
@@ -872,7 +872,7 @@
 			repositoryURL = "https://github.com/FluxorOrg/Fluxor";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

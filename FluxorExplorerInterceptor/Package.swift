@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/FluxorOrg/Fluxor",
-            from: "3.0.0"),
+            from: "4.0.0"),
         .package(path: "../FluxorExplorerSnapshot"),
     ],
     targets: [
@@ -26,5 +26,5 @@ let package = Package(
             dependencies: ["Fluxor", "FluxorExplorerSnapshot"]),
         .testTarget(
             name: "FluxorExplorerInterceptorTests",
-            dependencies: ["FluxorExplorerInterceptor"]),
+            dependencies: ["Fluxor", "FluxorExplorerInterceptor"]),
     ])

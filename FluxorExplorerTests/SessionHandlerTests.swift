@@ -96,7 +96,8 @@ private class MockBrowser: MCNearbyServiceBrowser {
     override func invitePeer(_ peerID: MCPeerID,
                              to session: MCSession,
                              withContext context: Data?,
-                             timeout: TimeInterval) {
+                             timeout: TimeInterval)
+    {
         invitedPeer = peerID
     }
 }
