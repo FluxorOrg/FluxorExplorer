@@ -48,11 +48,9 @@ public struct FluxorExplorerSnapshot: Codable, Equatable {
             if let encodableAction = action as? EncodableAction,
                let encodedAction = encodableAction.encode(with: JSONEncoder()),
                let decodedPayload = try? JSONDecoder().decode([String: AnyCodable].self, from: encodedAction),
-               decodedPayload.count > 0
-            {
+               decodedPayload.count > 0 {
                 payload = decodedPayload
-            }
-            else {
+            } else {
                 payload = ["error": "Action is not encodable and couldn't be encoded."]
             }
         }

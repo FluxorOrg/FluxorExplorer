@@ -35,6 +35,7 @@ class FluxorExplorerInterceptorTests: XCTestCase {
 
     func testInternalInitializer() {
         // Given
+        // swiftlint:disable:next force_cast
         let testAdvertiser = interceptor!.advertiser as! TestAdvertiser
         // Then
         XCTAssertTrue(testAdvertiser.didStartAdvertisingPeer)
@@ -45,7 +46,8 @@ class FluxorExplorerInterceptorTests: XCTestCase {
         let acceptedExpectation = expectation(description: debugDescription)
         // When
         var sessionFromInvitation: MCSession?
-        interceptor!.advertiser(interceptor!.advertiser, didReceiveInvitationFromPeer: otherPeerID, withContext: nil) { accepted, session in
+        interceptor!.advertiser(interceptor!.advertiser, didReceiveInvitationFromPeer: otherPeerID, withContext: nil) {
+            accepted, session in
             XCTAssertTrue(accepted)
             sessionFromInvitation = session
             acceptedExpectation.fulfill()
@@ -77,10 +79,12 @@ class FluxorExplorerInterceptorTests: XCTestCase {
 
     func testUnusedMandatorySessionDelegateCalls() {
         // When
+        // swiftlint:disable line_length
         interceptor!.session(session, didReceive: Data(), fromPeer: otherPeerID)
         interceptor!.session(session, didReceive: InputStream(), withName: "Some name", fromPeer: otherPeerID)
         interceptor!.session(session, didStartReceivingResourceWithName: "Some resource", fromPeer: otherPeerID, with: Progress())
         interceptor!.session(session, didFinishReceivingResourceWithName: "Some resource", fromPeer: otherPeerID, at: nil, withError: nil)
+        // swiftlint:enable line_length
         // Then
         XCTAssertTrue(true) // Nothing explodes
     }
@@ -96,7 +100,10 @@ class FluxorExplorerInterceptorTests: XCTestCase {
         XCTAssertEqual(interceptor.unsentSnapshots.count, 1)
 
         // Given
-        let mockSession = MCSessionSubClass(peer: localPeerID, securityIdentity: nil, encryptionPreference: .none, connectedPeers: [otherPeerID])
+        let mockSession = MCSessionSubClass(peer: localPeerID,
+                                            securityIdentity: nil,
+                                            encryptionPreference: .none,
+                                            connectedPeers: [otherPeerID])
         interceptor.session = mockSession
         let rawData = try! JSONEncoder().encode(interceptor.unsentSnapshots[0])
         // When
@@ -112,7 +119,10 @@ class FluxorExplorerInterceptorTests: XCTestCase {
     func testDefaultDidFailSendingSnapshot() {
         // Given
         let snapshot = FluxorExplorerSnapshot(action: TestAction(), oldState: State(), newState: State())
-        let mockSession = MCSessionSubClass(peer: localPeerID, securityIdentity: nil, encryptionPreference: .none, connectedPeers: [otherPeerID])
+        let mockSession = MCSessionSubClass(peer: localPeerID,
+                                            securityIdentity: nil,
+                                            encryptionPreference: .none,
+                                            connectedPeers: [otherPeerID])
         mockSession.shouldFailSendingData = true
         interceptor.session = mockSession
         // When
@@ -124,7 +134,10 @@ class FluxorExplorerInterceptorTests: XCTestCase {
     func testCustomDidFailSendingSnapshot() {
         // Given
         let snapshot = FluxorExplorerSnapshot(action: TestAction(), oldState: State(), newState: State())
-        let mockSession = MCSessionSubClass(peer: localPeerID, securityIdentity: nil, encryptionPreference: .none, connectedPeers: [otherPeerID])
+        let mockSession = MCSessionSubClass(peer: localPeerID,
+                                            securityIdentity: nil,
+                                            encryptionPreference: .none,
+                                            connectedPeers: [otherPeerID])
         mockSession.shouldFailSendingData = true
         interceptor.session = mockSession
         let didFailSendingExpectation = expectation(description: debugDescription)
@@ -161,13 +174,17 @@ class TestAdvertiser: MCNearbyServiceAdvertiser {
 }
 
 class MCSessionSubClass: MCSession {
+    // swiftlint:disable:next large_tuple
     private(set) var sentData: (data: Data, toPeers: [MCPeerID], mode: MCSessionSendDataMode)?
     private let _connectedPeers: [MCPeerID]
     var shouldFailSendingData = false
 
     override var connectedPeers: [MCPeerID] { _connectedPeers }
 
-    public init(peer myPeerID: MCPeerID, securityIdentity identity: [Any]?, encryptionPreference: MCEncryptionPreference, connectedPeers: [MCPeerID]) {
+    public init(peer myPeerID: MCPeerID, securityIdentity identity: [Any]?,
+                encryptionPreference: MCEncryptionPreference,
+                connectedPeers: [MCPeerID])
+    {
         _connectedPeers = connectedPeers
         super.init(peer: myPeerID, securityIdentity: identity, encryptionPreference: encryptionPreference)
     }

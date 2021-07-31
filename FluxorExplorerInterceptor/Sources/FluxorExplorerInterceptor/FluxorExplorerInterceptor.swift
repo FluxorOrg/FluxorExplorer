@@ -14,8 +14,7 @@ import MultipeerConnectivity
  An `Interceptor` which sends `FluxorExplorerSnapshot`s to FluxorExplorer.
  */
 public class FluxorExplorerInterceptor<State: Encodable>: NSObject,
-    MCNearbyServiceAdvertiserDelegate, MCSessionDelegate
-{
+    MCNearbyServiceAdvertiserDelegate, MCSessionDelegate {
     private let serviceType = "fluxor-explorer"
     internal let localPeerID: MCPeerID
     internal var advertiser: MCNearbyServiceAdvertiser
@@ -61,8 +60,7 @@ public class FluxorExplorerInterceptor<State: Encodable>: NSObject,
     // MARK: - MCNearbyServiceAdvertiserDelegate
 
     public func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID,
-                           withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void)
-    {
+                           withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         let session = MCSession(peer: localPeerID, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         invitationHandler(true, session)
