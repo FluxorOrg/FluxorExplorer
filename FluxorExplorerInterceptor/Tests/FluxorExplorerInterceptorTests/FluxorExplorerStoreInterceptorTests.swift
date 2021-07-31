@@ -46,8 +46,9 @@ class FluxorExplorerInterceptorTests: XCTestCase {
         let acceptedExpectation = expectation(description: debugDescription)
         // When
         var sessionFromInvitation: MCSession?
-        interceptor!.advertiser(interceptor!.advertiser, didReceiveInvitationFromPeer: otherPeerID, withContext: nil) {
-            accepted, session in
+        interceptor!.advertiser(interceptor!.advertiser,
+                                didReceiveInvitationFromPeer: otherPeerID,
+                                withContext: nil) { accepted, session in
             XCTAssertTrue(accepted)
             sessionFromInvitation = session
             acceptedExpectation.fulfill()
@@ -183,8 +184,7 @@ class MCSessionSubClass: MCSession {
 
     public init(peer myPeerID: MCPeerID, securityIdentity identity: [Any]?,
                 encryptionPreference: MCEncryptionPreference,
-                connectedPeers: [MCPeerID])
-    {
+                connectedPeers: [MCPeerID]) {
         _connectedPeers = connectedPeers
         super.init(peer: myPeerID, securityIdentity: identity, encryptionPreference: encryptionPreference)
     }
