@@ -84,7 +84,7 @@ public class FluxorExplorerInterceptor<State: Encodable>: NSObject, MCNearbyServ
 
 extension FluxorExplorerInterceptor: Interceptor {
     public func actionDispatched(action: Action, oldState: State, newState: State) {
-        guard let action = action as? EncodableAction else { return }
+//        guard let action = action as? EncodableAction else { return }
         send(snapshot: FluxorExplorerSnapshot(action: action, oldState: oldState, newState: newState))
     }
 }
