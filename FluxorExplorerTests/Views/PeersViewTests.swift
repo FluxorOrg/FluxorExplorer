@@ -31,7 +31,7 @@ class PeersViewTests: XCTestCase {
         let listElements = try getListElements(in: view)
         XCTAssertEqual(listElements.count, peers.count)
         try peers.indices.forEach {
-            XCTAssertEqual(try listElements.button($0).text().string(), peers[$0].displayName)
+            XCTAssertEqual(try listElements.button($0).labelView().text().string(), peers[$0].displayName)
         }
     }
 
