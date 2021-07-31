@@ -723,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.2;
+				MARKETING_VERSION = 2021.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fluxor.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -744,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.2;
+				MARKETING_VERSION = 2021.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fluxor.Explorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
