@@ -387,6 +387,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				5ACBDBFE26B5F2F200B55586 /* PBXTargetDependency */,
+				5ACBDBFC26B5F2EB00B55586 /* PBXTargetDependency */,
+				5ACBDBFA26B5F2E800B55586 /* PBXTargetDependency */,
 			);
 			name = FluxorExplorer;
 			packageProductDependencies = (
@@ -586,6 +589,18 @@
 			isa = PBXTargetDependency;
 			target = 5A240294237B5E3100AD7007 /* FluxorExplorer */;
 			targetProxy = 5A2402B7237B5E3600AD7007 /* PBXContainerItemProxy */;
+		};
+		5ACBDBFA26B5F2E800B55586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 5ACBDBF926B5F2E800B55586 /* FluxorExplorerSnapshot */;
+		};
+		5ACBDBFC26B5F2EB00B55586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 5ACBDBFB26B5F2EB00B55586 /* Fluxor */;
+		};
+		5ACBDBFE26B5F2F200B55586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 5ACBDBFD26B5F2F200B55586 /* FluxorSwiftUI */;
 		};
 /* End PBXTargetDependency section */
 
@@ -897,6 +912,20 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5ACBDBF226B5E45100B55586 /* XCRemoteSwiftPackageReference "Fluxor" */;
 			productName = Fluxor;
+		};
+		5ACBDBF926B5F2E800B55586 /* FluxorExplorerSnapshot */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FluxorExplorerSnapshot;
+		};
+		5ACBDBFB26B5F2EB00B55586 /* Fluxor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5ACBDBF226B5E45100B55586 /* XCRemoteSwiftPackageReference "Fluxor" */;
+			productName = Fluxor;
+		};
+		5ACBDBFD26B5F2F200B55586 /* FluxorSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5ACBDBF226B5E45100B55586 /* XCRemoteSwiftPackageReference "Fluxor" */;
+			productName = FluxorSwiftUI;
 		};
 		5AD8211126B5E0A00034BC59 /* FluxorExplorerSnapshot */ = {
 			isa = XCSwiftPackageProductDependency;
