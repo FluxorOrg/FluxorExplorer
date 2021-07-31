@@ -1,6 +1,6 @@
 # FluxorExplorerSnapshot
 
-A struct to be used by [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorerInterceptor) to send the dispatched `Action`, the old state and the new state, to [FluxorExplorer](https://github.com/FluxorOrg/FluxorExplorer).
+A struct to be used by [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorer/tree/master/FluxorExplorerInterceptor) to send the dispatched `Action`, the old state and the new state, to [FluxorExplorer](https://github.com/FluxorOrg/FluxorExplorer).
 
 ![Platforms](https://img.shields.io/badge/platforms-Mac+iOS-brightgreen.svg?style=flat)
 ![Swift version](https://img.shields.io/badge/Swift-5.2-brightgreen.svg)
@@ -12,4 +12,4 @@ A struct to be used by [FluxorExplorerInterceptor](https://github.com/FluxorOrg/
 [![Test Coverage](https://api.codeclimate.com/v1/badges/54bb7b6c7d93f100fc60/test_coverage)](https://codeclimate.com/github/FluxorOrg/FluxorExplorerSnapshot/test_coverage)
 
 ## 🤔 When should I use FluxorExplorerSnapshot?
-You should never have to use FluxorExplorerSnapshot directly. [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorerInterceptor) uses it to encode the data intercepted from the `Store` to send it to [FluxorExplorer](https://github.com/FluxorOrg/FluxorExplorer) which would decode it and show it.
+You should never have to use FluxorExplorerSnapshot directly. [FluxorExplorerInterceptor](https://github.com/FluxorOrg/FluxorExplorer/tree/master/FluxorExplorerInterceptor) uses it to encode the data intercepted from the `Store` to send it to [FluxorExplorer](https://github.com/FluxorOrg/FluxorExplorer) which would decode it and show it.
