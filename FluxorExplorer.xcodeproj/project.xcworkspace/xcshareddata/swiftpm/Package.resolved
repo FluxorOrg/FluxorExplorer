@@ -3,11 +3,20 @@
     "pins": [
       {
         "package": "Fluxor",
-        "repositoryURL": "https://github.com/FluxorOrg/Fluxor.git",
+        "repositoryURL": "https://github.com/FluxorOrg/Fluxor",
         "state": {
           "branch": null,
-          "revision": "35b2a6aba3f768deb75f1dd1ab468438e4dd5c90",
-          "version": "3.0.0"
+          "revision": "f15306d661b26a568651a179e583c0e8f6033add",
+          "version": "4.0.0"
+        }
+      },
+      {
+        "package": "FluxorExplorerSnapshot",
+        "repositoryURL": "git@github.com:FluxorOrg/FluxorExplorerSnapshot.git",
+        "state": {
+          "branch": null,
+          "revision": "69580eca8981b8c0e09b2e0ddc154b9abcaa17f0",
+          "version": "4.0.0"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "7d55eb940242512aad2bf28db354d09d5de43893",
-          "version": "0.3.11"
+          "revision": "a9b0d2af51b8afbbcb6a3e1005aabf8726852a77",
+          "version": "0.8.1"
         }
       }
     ]
