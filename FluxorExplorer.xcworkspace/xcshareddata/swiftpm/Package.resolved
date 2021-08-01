@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "FluxorExplorerSnapshot",
+        "repositoryURL": "git@github.com:FluxorOrg/FluxorExplorerSnapshot.git",
+        "state": {
+          "branch": null,
+          "revision": "69580eca8981b8c0e09b2e0ddc154b9abcaa17f0",
+          "version": "4.0.0"
+        }
+      },
+      {
         "package": "ViewInspector",
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
