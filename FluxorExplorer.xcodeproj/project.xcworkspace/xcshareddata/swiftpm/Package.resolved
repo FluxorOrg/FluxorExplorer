@@ -12,7 +12,7 @@
       },
       {
         "package": "FluxorExplorerSnapshot",
-        "repositoryURL": "git@github.com:FluxorOrg/FluxorExplorerSnapshot.git",
+        "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerSnapshot",
         "state": {
           "branch": null,
           "revision": "69580eca8981b8c0e09b2e0ddc154b9abcaa17f0",
