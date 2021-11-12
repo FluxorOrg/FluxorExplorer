@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/FluxorOrg/Fluxor",
         "state": {
           "branch": null,
-          "revision": "f15306d661b26a568651a179e583c0e8f6033add",
-          "version": "4.0.0"
+          "revision": "1d20b74287f629c6187db11d7905988fb65a3e0d",
+          "version": "5.0.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerSnapshot",
         "state": {
           "branch": null,
-          "revision": "69580eca8981b8c0e09b2e0ddc154b9abcaa17f0",
-          "version": "4.0.0"
+          "revision": "ebcc5bb6e8b8bab403f9563aae938bf71fc67e74",
+          "version": "5.0.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "a9b0d2af51b8afbbcb6a3e1005aabf8726852a77",
-          "version": "0.8.1"
+          "revision": "0d546878902bdde8c4682141f848a9dc44e04ba6",
+          "version": "0.9.0"
         }
       }
     ]
