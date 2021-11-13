@@ -9,7 +9,7 @@ import UIKit
 
 class AppEffects: Effects {
     typealias Environment = AppEnvironment
-    
+
     let startSessionHandler = Effect<AppEnvironment>.nonDispatching { actions, environment in
         actions
             .wasCreated(from: Actions.startSessionHandler)

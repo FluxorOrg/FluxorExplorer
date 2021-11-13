@@ -16,8 +16,11 @@ struct PeersView: View {
         HStack {
             if peers.count > 0 {
                 List(peers) { peer in
-                    let isActive = store.binding(get: Selector.with(Selectors.getSelectedPeerId, projector: { $0 == peer.id }),
-                                                 send: { $0 ? Actions.selectPeer(payload: peer.id) : Actions.deselectPeer(payload: peer.id) })
+                    let isActive = store.binding(get: Selector.with(Selectors.getSelectedPeerId,
+                                                                    projector: { $0 == peer.id }),
+                                                 send: { $0 ? Actions.selectPeer(payload: peer.id)
+                                                     : Actions.deselectPeer(payload: peer.id)
+                                                 })
                     NavigationLink(peer.name, isActive: isActive) {
                         SnapshotsView()
                     }

@@ -32,6 +32,7 @@ struct DataStructureView: View {
             .compactMap { keyValue -> Text in
                 let (key, value) = keyValue
                 return Text(subindention.string)
+                // swiftlint:disable:next force_cast
                     + createKeyText(key as! String)
                     + textify(value: value.value, indentation: indentation, afterColon: true)
             }

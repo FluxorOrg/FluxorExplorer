@@ -23,10 +23,12 @@ struct SnapshotsView: View {
             if let snapshots = snapshots, snapshots.count > 0 {
                 List {
                     ForEach(snapshots, id: \.date) { snapshot in
-                        let isActive = store.binding(get: Selector.with(Selectors.getSelectedSnapshot, projector: { $0 == snapshot }),
+                        let isActive = store.binding(get: Selector.with(Selectors.getSelectedSnapshot,
+                                                                        projector: { $0 == snapshot }),
                                                      send: {
                                                          let payload = (peerId: peerId, snapshot: snapshot)
-                                                         return $0 ? Actions.selectSnapshot(payload: payload) : Actions.deselectSnapshot(payload: payload)
+                                                         return $0 ? Actions.selectSnapshot(payload: payload)
+                                                             : Actions.deselectSnapshot(payload: payload)
                                                      })
                         NavigationLink(destination: SnapshotView(snapshot: snapshot), isActive: isActive) {
                             VStack(alignment: .leading) {
