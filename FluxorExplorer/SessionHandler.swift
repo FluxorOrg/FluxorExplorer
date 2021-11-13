@@ -29,11 +29,11 @@ extension SessionHandler: MCSessionDelegate {
         switch state {
         case .connected:
             DispatchQueue.main.async {
-                Current.store.dispatch(action: PeerConnectedAction(peer: peerID))
+                FluxorExplorerApp.store.dispatch(action: Actions.peerConnected(payload: peerID))
             }
         case .notConnected:
             DispatchQueue.main.async {
-                Current.store.dispatch(action: PeerDisconnectedAction(peer: peerID))
+                FluxorExplorerApp.store.dispatch(action: Actions.peerDisconnected(payload: peerID))
             }
         default: break
         }
@@ -43,7 +43,7 @@ extension SessionHandler: MCSessionDelegate {
         do {
             let snapshot = try JSONDecoder().decode(FluxorExplorerSnapshot.self, from: data)
             DispatchQueue.main.async {
-                Current.store.dispatch(action: DidReceiveSnapshotAction(peer: peerID, snapshot: snapshot))
+                FluxorExplorerApp.store.dispatch(action: Actions.didReceiveSnapshot(payload: (peerId: peerID, snapshot: snapshot)))
             }
         } catch {}
     }

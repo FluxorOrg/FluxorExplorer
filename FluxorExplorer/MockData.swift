@@ -9,22 +9,20 @@ import Fluxor
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
-// swiftlint:disable trailing_comma
-
 func setupMockData() {
     let peer1 = MCPeerID(displayName: "iPhone 11 Pro")
     let peer2 = MCPeerID(displayName: "iPhone 8")
     let snapshots = createSnapshots()
-    Current.store.register(reducer: Reducer(
+    FluxorExplorerApp.store.register(reducer: Reducer(
         ReduceOn(ResetStateAction.self) { state, _ in
             state = AppState()
         }
     ))
-    Current.store.dispatch(action: ResetStateAction())
-    Current.store.dispatch(action: PeerConnectedAction(peer: peer1))
-    Current.store.dispatch(action: PeerConnectedAction(peer: peer2))
+    FluxorExplorerApp.store.dispatch(action: ResetStateAction())
+    FluxorExplorerApp.store.dispatch(action: Actions.peerConnected(payload: peer1))
+    FluxorExplorerApp.store.dispatch(action: Actions.peerConnected(payload: peer2))
     snapshots.forEach {
-        Current.store.dispatch(action: DidReceiveSnapshotAction(peer: peer1, snapshot: $0))
+        FluxorExplorerApp.store.dispatch(action: Actions.didReceiveSnapshot(payload: (peerId: peer1, snapshot: $0)))
     }
 }
 
@@ -49,7 +47,7 @@ private func createSnapshots() -> [FluxorExplorerSnapshot] {
         createSnapshot(action: AddTodoAction(title: newTodoTitle),
                        newState: SampleAppState(todos: TodosState(todos: {
                            todos.append(Todo(title: newTodoTitle)); return todos
-        }(), loadingTodos: false))),
+                       }(), loadingTodos: false))),
         createSnapshot(action: CompleteTodoAction(todo: todos[1]),
                        newState: SampleAppState(todos: TodosState(todos: { todos[1].done = true; return todos }(),
                                                                   loadingTodos: false))),
@@ -60,7 +58,7 @@ private func createSnapshots() -> [FluxorExplorerSnapshot] {
 }
 
 private func createSnapshot(action: Action, newState: SampleAppState) -> FluxorExplorerSnapshot {
-    let date = oldDate.addingTimeInterval(TimeInterval.random(in: 1...5))
+    let date = oldDate.addingTimeInterval(TimeInterval.random(in: 1 ... 5))
     defer {
         oldState = newState
         oldDate = date

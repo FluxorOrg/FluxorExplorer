@@ -38,7 +38,7 @@ class AppEffectsTests: XCTestCase {
                                               newState: TestState(counter: 1337))
         let store = MockStore(initialState: WindowState(peer: PeerState(peerName: peer.displayName)),
                               environment: environment)
-        Current.storeByPeers[peer.displayName] = store
+        FluxorExplorerApp.storeByPeers[peer.displayName] = store
         // When
         let didReceiveSnapshotAction = DidReceiveSnapshotAction(peer: peer, snapshot: snapshot)
         try EffectRunner.run(effects.relayReceivedSnapshot, with: didReceiveSnapshotAction, environment: environment)

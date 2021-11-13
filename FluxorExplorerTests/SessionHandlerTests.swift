@@ -24,7 +24,7 @@ class SessionHandlerTests: XCTestCase {
         session = .init(peer: peer)
         handler = .init()
         store = .init(initialState: .init(), environment: AppEnvironment())
-        Current.store = store
+        FluxorExplorerApp.store = store
     }
 
     func testSessionConnected() {

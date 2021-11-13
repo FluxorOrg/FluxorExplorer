@@ -33,10 +33,4 @@ extension AppDelegate {
                    children: [showDevicesListCommand])
         return showDevicesListMenu
     }
-
-    @objc func showDevicesList() {
-        UIApplication.shared.requestSceneSessionActivation(nil,
-                                                           userActivity: SceneConfiguration.default.activity,
-                                                           options: nil, errorHandler: nil)
-    }
 }

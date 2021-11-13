@@ -4,12 +4,22 @@
  *  MIT license, see LICENSE file for details
  */
 
+import FluxorExplorerSnapshot
 import MultipeerConnectivity.MCPeerID
 
 struct AppState: Encodable {
-    var peers = PeersState()
+    var peers = [MCPeerID: Peer]()
+    var selectedPeer: MCPeerID?
 }
 
-struct PeersState: Encodable {
-    var peers = [MCPeerID]()
+struct Peer: Encodable, Equatable, Hashable, Identifiable {
+    var id: MCPeerID
+    var name: String { id.displayName }
+    var snapshots = [FluxorExplorerSnapshot]()
+    var selectedSnaphot: FluxorExplorerSnapshot?
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
 }
