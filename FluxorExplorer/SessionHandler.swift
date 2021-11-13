@@ -43,7 +43,8 @@ extension SessionHandler: MCSessionDelegate {
         do {
             let snapshot = try JSONDecoder().decode(FluxorExplorerSnapshot.self, from: data)
             DispatchQueue.main.async {
-                FluxorExplorerApp.store.dispatch(action: Actions.didReceiveSnapshot(payload: (peerId: peerID, snapshot: snapshot)))
+                FluxorExplorerApp.store.dispatch(action:
+                    Actions.didReceiveSnapshot(payload: (peerId: peerID, snapshot: snapshot)))
             }
         } catch {}
     }

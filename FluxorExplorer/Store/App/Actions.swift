@@ -14,7 +14,13 @@ enum Actions {
     static let peerDisconnected = ActionTemplate(id: "Peer disconnected", payloadType: MCPeerID.self)
     static let selectPeer = ActionTemplate(id: "Select peer", payloadType: MCPeerID.self)
     static let deselectPeer = ActionTemplate(id: "Deelect peer", payloadType: MCPeerID.self)
-    static let didReceiveSnapshot = ActionTemplate(id: "Did receive snapshot", payloadType: (peerId: MCPeerID, snapshot: FluxorExplorerSnapshot).self)
-    static let selectSnapshot = ActionTemplate(id: "Select snapshot", payloadType: (peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot).self)
-    static let deselectSnapshot = ActionTemplate(id: "Deelect snapshot", payloadType: (peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot).self)
+    static let didReceiveSnapshot = ActionTemplate(id: "Did receive snapshot",
+                                                   payloadType: (peerId: MCPeerID,
+                                                                 snapshot: FluxorExplorerSnapshot).self)
+    static let selectSnapshot = ActionTemplate(id: "Select snapshot",
+                                               payloadType: (peerId: MCPeerID?,
+                                                             snapshot: FluxorExplorerSnapshot).self)
+    static let deselectSnapshot = ActionTemplate(id: "Deelect snapshot",
+                                                 payloadType: (peerId: MCPeerID?,
+                                                               snapshot: FluxorExplorerSnapshot).self)
 }
