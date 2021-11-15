@@ -11,8 +11,6 @@ import FluxorTestSupport
 import MultipeerConnectivity.MCPeerID
 import XCTest
 
-// swiftlint:disable force_cast
-
 class AppEffectsTests: XCTestCase {
     func testStartSessionHandler() throws {
         // Given
@@ -20,7 +18,9 @@ class AppEffectsTests: XCTestCase {
         let mockSessionHandler = MockSessionHandler()
         let environment = AppEnvironment(sessionHandler: mockSessionHandler)
         // When
-        try EffectRunner.run(effects.startSessionHandler, with: Actions.startSessionHandler(), environment: environment)
+        try EffectRunner.run(effects.startSessionHandler,
+                             with: Actions.startSessionHandler(),
+                             environment: environment)
         // Then
         XCTAssertTrue(mockSessionHandler.hasStarted)
     }

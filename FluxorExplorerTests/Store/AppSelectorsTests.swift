@@ -42,7 +42,9 @@ class AppSelectorsTests: XCTestCase {
 
     func testGetSelectedPeerSnapshots() {
         // Given
-        let snapshots = [FluxorExplorerSnapshot(action: TestAction(increment: 1), oldState: TestState(counter: 0), newState: TestState(counter: 1))]
+        let snapshots = [FluxorExplorerSnapshot(action: TestAction(increment: 1),
+                                                oldState: TestState(counter: 0),
+                                                newState: TestState(counter: 1))]
         let peer = Peer(id: peerId, snapshots: snapshots)
         // Then
         XCTAssertEqual(Selectors.getSelectedPeerSnapshots.projector(peer), snapshots)

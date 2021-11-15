@@ -64,12 +64,6 @@ class AppReducersTests: XCTestCase {
             (peerId: peerId, snapshot: snapshot2)))
         // Then
         XCTAssertEqual(state.peers[peerId]?.snapshots, [snapshot1, snapshot2])
-//        // When
-//        let currentState = state
-//        appReducer.reduce(&state, Actions.didReceiveSnapshot(payload:
-//            (peerId: MCPeerID(displayName: "unknown id"), snapshot: snapshot2)))
-//        // Then nothing changes
-//        XCTAssertEqual(state.peers, currentState.peers)
     }
 
     func testReceivingSelectSnapshot() {
@@ -84,7 +78,7 @@ class AppReducersTests: XCTestCase {
     func testReceivingDeselectSnapshot() {
         // Given
         var state = AppState(peers: [
-            peerId: Peer(id: peerId, snapshots: [snapshot1, snapshot2], selectedSnaphot: snapshot1),
+            peerId: Peer(id: peerId, snapshots: [snapshot1, snapshot2], selectedSnaphot: snapshot1)
         ])
         // When
         appReducer.reduce(&state, Actions.deselectSnapshot(payload: (peerId: peerId, snapshot: snapshot2)))

@@ -11,6 +11,8 @@ import MultipeerConnectivity
 import ViewInspector
 import XCTest
 
+// swiftlint:disable force_cast
+
 class PeersViewTests: ViewTestCase {
     private let peerId1 = MCPeerID(displayName: "Peer 1")
     private let peerId2 = MCPeerID(displayName: "Peer 2")
@@ -38,7 +40,7 @@ class PeersViewTests: ViewTestCase {
             XCTAssertEqual(try listElements.navigationLink($0).labelView().text().string(), peers[$0].name)
         }
     }
-
+    
     func testPeerSelection() throws {
         // Given
         let peerId = MCPeerID(displayName: "Some id")

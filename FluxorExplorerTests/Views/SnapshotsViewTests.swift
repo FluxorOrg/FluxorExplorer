@@ -12,6 +12,8 @@ import SwiftUI
 import ViewInspector
 import XCTest
 
+// swiftlint:disable force_cast
+
 class SnapshotsViewTests: ViewTestCase {
     let snapshots = [FluxorExplorerSnapshot(action: TestAction(increment: 1),
                                             oldState: TestState(counter: 1),
@@ -64,13 +66,15 @@ class SnapshotsViewTests: ViewTestCase {
         let listElements = try getListElements(in: view)
         try listElements.navigationLink(0).activate()
         // Then
-        let dispatchedSelectAction = mockStore.dispatchedActions[0] as! AnonymousAction<(peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot)>
+        let dispatchedSelectAction = mockStore.dispatchedActions[0]
+            as! AnonymousAction<(peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot)>
         let selectAction = Actions.selectSnapshot(payload: (peerId: peerId, snapshot: snapshots[0]))
         XCTAssertEqual(dispatchedSelectAction, selectAction)
         // When
         try listElements.navigationLink(0).deactivate()
         // Then
-        let dispatchedDeselectAction = mockStore.dispatchedActions[1] as! AnonymousAction<(peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot)>
+        let dispatchedDeselectAction = mockStore.dispatchedActions[1]
+            as! AnonymousAction<(peerId: MCPeerID?, snapshot: FluxorExplorerSnapshot)>
         let deselectAction = Actions.deselectSnapshot(payload: (peerId: peerId, snapshot: snapshots[0]))
         XCTAssertEqual(dispatchedDeselectAction, deselectAction)
     }
