@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorExplorer
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -15,7 +15,7 @@ struct DataStructureView: View {
             .font(.custom("Lucida Console", size: 16))
     }
 
-    private func textify(_ dictionary: [String: AnyCodable],
+    private func textify(_ dictionary: [AnyHashable: AnyCodable],
                          indentation: Indentation,
                          startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
         let subindention: Indentation
@@ -28,11 +28,12 @@ struct DataStructureView: View {
             endBraceIndentation = startBraceIndentation
         }
         let mappedDictionary = dictionary
-            .sorted { $0.key < $1.key }
+            .sorted { $0.key.description < $1.key.description }
             .compactMap { keyValue -> Text in
                 let (key, value) = keyValue
                 return Text(subindention.string)
-                    + createKeyText(key)
+                // swiftlint:disable:next force_cast
+                    + createKeyText(key as! String)
                     + textify(value: value.value, indentation: indentation, afterColon: true)
             }
         let initialText = mappedDictionary.first ?? Text("")
@@ -42,17 +43,9 @@ struct DataStructureView: View {
             + createNormalText("\n\(endBraceIndentation.string)}")
     }
 
-    private func textify(_ dictionary: [String: Any],
-                         indentation: Indentation,
-                         startBraceIndentation: Indentation = .init(amount: 0)) -> Text {
-        return textify(dictionary.mapValues(AnyCodable.init),
-                       indentation: indentation,
-                       startBraceIndentation: startBraceIndentation)
-    }
-
     private func textify(_ array: [Any], indentation: Indentation) -> Text {
         let mappedArray = array.map { element -> Text in
-            if let dictionary = element as? [String: Any] {
+            if let dictionary = element as? [AnyHashable: AnyCodable] {
                 return textify(dictionary, indentation: indentation, startBraceIndentation: indentation.increased)
             } else {
                 return textify(value: element, indentation: indentation, afterColon: false)
@@ -68,16 +61,16 @@ struct DataStructureView: View {
         let indentationText = Text(afterColon ? "" : indentation.string)
         let valueText: Text
         switch value {
-        case let dictionaryValue as [String: AnyCodable]:
+        case let dictionaryValue as [AnyHashable: AnyCodable]:
             valueText = textify(dictionaryValue, indentation: subindentation)
-        case let dictionaryValue as [String: Any]:
-            valueText = textify(dictionaryValue, indentation: subindentation)
-        case let arrayValue as [[String: AnyCodable]]:
+        case let arrayValue as [[AnyHashable: AnyCodable]]:
             valueText = textify(arrayValue, indentation: subindentation)
         case let arrayValue as [AnyCodable]:
             valueText = textify(arrayValue, indentation: subindentation)
         case let arrayValue as [Any]:
             valueText = textify(arrayValue, indentation: subindentation)
+        case let anyCodable as AnyCodable:
+            valueText = textify(value: anyCodable.value, indentation: indentation, afterColon: afterColon)
         case let stringValue as String:
             valueText = createValueText("\"\(stringValue)\"")
         case let intValue as Int:
@@ -93,16 +86,16 @@ struct DataStructureView: View {
     }
 
     private func createNormalText(_ string: String) -> Text {
-        return Text(string)
+        Text(string)
     }
 
     private func createKeyText(_ key: String) -> Text {
-        return Text("\"\(key)\": ")
+        Text("\"\(key)\": ")
             .foregroundColor(Color(.systemOrange))
     }
 
     private func createValueText(_ value: String) -> Text {
-        return Text(value)
+        Text(value)
             .foregroundColor(Color(.systemRed))
     }
 

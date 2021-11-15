@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorExplorer
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -8,30 +8,33 @@ import Fluxor
 import FluxorExplorerSnapshot
 import SwiftUI
 
-struct SnapshotsView {
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
-    var model: SnapshotsViewModel
-    @State var snapshots = [FluxorExplorerSnapshot]()
+struct SnapshotsView: View {
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @ObservedObject var store: Store<AppState, AppEnvironment>
+    @StoreValue(FluxorExplorerApp.store, Selectors.getSelectedPeerId) private var peerId
+    @StoreValue(FluxorExplorerApp.store, Selectors.getSelectedPeerSnapshots) private var snapshots
 
     func timeBackgroundColor(for colorScheme: ColorScheme) -> Color {
         Color(colorScheme == .dark ? .darkGray : .init(white: 0.9, alpha: 1))
     }
-}
 
-extension SnapshotsView: View {
     var body: some View {
         HStack {
-            if snapshots.count > 0 {
+            if let snapshots = snapshots, snapshots.count > 0 {
                 List {
                     ForEach(snapshots, id: \.date) { snapshot in
-                        NavigationLink(destination: SnapshotView(snapshot: snapshot)) {
-                            HStack {
+                        let isActive = store.binding(get: Selector.with(Selectors.getSelectedSnapshot,
+                                                                        projector: { $0 == snapshot }),
+                                                     send: {
+                                                         let payload = (peerId: peerId, snapshot: snapshot)
+                                                         return $0 ? Actions.selectSnapshot(payload: payload)
+                                                             : Actions.deselectSnapshot(payload: payload)
+                                                     })
+                        NavigationLink(destination: SnapshotView(snapshot: snapshot), isActive: isActive) {
+                            VStack(alignment: .leading) {
                                 Text(snapshot.actionData.name)
-                                Spacer()
-                                Text(self.model.dateFormatter.string(from: snapshot.date))
-                                    .padding(6)
-                                    .background(self.timeBackgroundColor(for: self.colorScheme))
-                                    .cornerRadius(6)
+                                Text(snapshot.date.formatted(date: .omitted, time: .shortened))
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
@@ -44,6 +47,5 @@ extension SnapshotsView: View {
             }
         }
         .navigationBarTitle("Snapshots")
-        .onReceive(model.store.select(Selectors.getSnapshots), perform: { self.snapshots = $0 })
     }
 }

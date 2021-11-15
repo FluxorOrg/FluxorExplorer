@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorExplorer
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -7,7 +7,11 @@
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
-class SessionHandler: NSObject {
+protocol SessionHandlerProtocol {
+    func start()
+}
+
+class SessionHandler: NSObject, SessionHandlerProtocol {
     private let peer: MCPeerID
     private var session: MCSession?
     private var mcServiceBrowser: MCNearbyServiceBrowser
@@ -29,11 +33,11 @@ extension SessionHandler: MCSessionDelegate {
         switch state {
         case .connected:
             DispatchQueue.main.async {
-                Current.store.dispatch(action: PeerConnectedAction(peer: peerID))
+                FluxorExplorerApp.store.dispatch(action: Actions.peerConnected(payload: peerID))
             }
         case .notConnected:
             DispatchQueue.main.async {
-                Current.store.dispatch(action: PeerDisconnectedAction(peer: peerID))
+                FluxorExplorerApp.store.dispatch(action: Actions.peerDisconnected(payload: peerID))
             }
         default: break
         }
@@ -43,7 +47,8 @@ extension SessionHandler: MCSessionDelegate {
         do {
             let snapshot = try JSONDecoder().decode(FluxorExplorerSnapshot.self, from: data)
             DispatchQueue.main.async {
-                Current.store.dispatch(action: DidReceiveSnapshotAction(peer: peerID, snapshot: snapshot))
+                FluxorExplorerApp.store.dispatch(action:
+                    Actions.didReceiveSnapshot(payload: (peerId: peerID, snapshot: snapshot)))
             }
         } catch {}
     }

@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorExplorerTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -11,13 +11,13 @@ import ViewInspector
 import XCTest
 
 class SnapshotViewTests: XCTestCase {
-    let snapshotWithPayload = FluxorExplorerSnapshot(action: GreetingAction(greeting: "Hi"),
-                                                     oldState: TestState(latestGreeting: "Hey"),
-                                                     newState: TestState(latestGreeting: "Hi"),
+    let snapshotWithPayload = FluxorExplorerSnapshot(action: TestAction(increment: 1),
+                                                     oldState: TestState(counter: 0),
+                                                     newState: TestState(counter: 1),
                                                      date: Date(timeIntervalSince1970: 1586294198))
-    let snapshotWithoutPayload = FluxorExplorerSnapshot(action: SayHelloAction(),
-                                                        oldState: TestState(latestGreeting: "Hi"),
-                                                        newState: TestState(latestGreeting: "Hello"),
+    let snapshotWithoutPayload = FluxorExplorerSnapshot(action: TestAction(increment: 2),
+                                                        oldState: TestState(counter: 1),
+                                                        newState: TestState(counter: 3),
                                                         date: Date(timeIntervalSince1970: 1586294098))
 
     static var originalTimeZone: TimeZone!
@@ -64,19 +64,9 @@ class SnapshotViewTests: XCTestCase {
     }
 
     private func getVStack(in view: SnapshotView) throws -> InspectableView<ViewType.VStack> {
-        return try view.inspect().scrollView().vStack()
+        try view.inspect().scrollView().vStack()
     }
 }
 
 extension SnapshotView: Inspectable {}
 extension DataStructureView: Inspectable {}
-
-private struct TestState: Encodable {
-    var latestGreeting: String
-}
-
-private struct GreetingAction: Action {
-    let greeting: String
-}
-
-private struct SayHelloAction: Action {}

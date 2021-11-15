@@ -52,42 +52,6 @@
                ReferencedContainer = "container:FluxorExplorer.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A2402B5237B5E3600AD7007"
-               BuildableName = "FluxorExplorerUITests.xctest"
-               BlueprintName = "FluxorExplorerUITests"
-               ReferencedContainer = "container:FluxorExplorer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FluxorExplorerSnapshotTests"
-               BuildableName = "FluxorExplorerSnapshotTests"
-               BlueprintName = "FluxorExplorerSnapshotTests"
-               ReferencedContainer = "container:FluxorExplorerSnapshot">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FluxorExplorerInterceptorTests"
-               BuildableName = "FluxorExplorerInterceptorTests"
-               BlueprintName = "FluxorExplorerInterceptorTests"
-               ReferencedContainer = "container:FluxorExplorerInterceptor">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -110,6 +74,13 @@
             ReferencedContainer = "container:FluxorExplorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "UI_TESTING"
+            value = ""
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
