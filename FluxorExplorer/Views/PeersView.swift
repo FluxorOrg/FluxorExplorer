@@ -9,7 +9,7 @@ import MultipeerConnectivity.MCPeerID
 import SwiftUI
 
 struct PeersView: View {
-    @EnvironmentObject private var store: Store<AppState, AppEnvironment>
+    @ObservedObject var store: Store<AppState, AppEnvironment>
     @StoreValue(FluxorExplorerApp.store, Selectors.getPeers) private var peers
 
     var body: some View {
@@ -22,7 +22,7 @@ struct PeersView: View {
                                                      : Actions.deselectPeer(payload: peer.id)
                                                  })
                     NavigationLink(peer.name, isActive: isActive) {
-                        SnapshotsView()
+                        SnapshotsView(store: store)
                     }
                 }
             } else {

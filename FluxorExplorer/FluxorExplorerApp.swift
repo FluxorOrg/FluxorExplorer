@@ -24,11 +24,10 @@ struct FluxorExplorerApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                PeersView()
-                SnapshotsView()
+                PeersView(store: FluxorExplorerApp.store)
+                SnapshotsView(store: FluxorExplorerApp.store)
                 Text("Select a snapshot in the list")
             }
-            .environmentObject(FluxorExplorerApp.store)
             .onAppear {
                 Self.store.dispatch(action: Actions.startSessionHandler())
                 #if DEBUG

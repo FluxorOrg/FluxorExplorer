@@ -8,7 +8,7 @@ import Fluxor
 
 struct Selectors {
     private static let getPeersState = Selector(keyPath: \AppState.peers)
-    static let getSelectedPeerId = Selector(keyPath: \AppState.selectedPeer)
+    static let getSelectedPeerId = Selector(keyPath: \AppState.selectedPeerId)
     static let getPeers = Selector.with(getPeersState) { $0.sorted(by: { $0.key < $1.key }).map(\.value) }
 
     private static let getSelectedPeer = Selector.with(

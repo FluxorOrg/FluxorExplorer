@@ -9,17 +9,12 @@ import MultipeerConnectivity.MCPeerID
 
 struct AppState: Encodable {
     var peers = [MCPeerID: Peer]()
-    var selectedPeer: MCPeerID?
+    var selectedPeerId: MCPeerID?
 }
 
-struct Peer: Encodable, Equatable, Hashable, Identifiable {
+struct Peer: Encodable, Equatable, Identifiable {
     var id: MCPeerID
     var name: String { id.displayName }
     var snapshots = [FluxorExplorerSnapshot]()
     var selectedSnaphot: FluxorExplorerSnapshot?
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-        hasher.combine(name)
-    }
 }

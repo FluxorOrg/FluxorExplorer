@@ -4,8 +4,10 @@
  *  MIT license, see LICENSE file for details
  */
 
-import Fluxor
-
 class AppEnvironment {
-    let sessionHandler = SessionHandler()
+    let sessionHandler: SessionHandlerProtocol
+
+    init(sessionHandler: SessionHandlerProtocol = SessionHandler()) {
+        self.sessionHandler = sessionHandler
+    }
 }

@@ -7,7 +7,11 @@
 import FluxorExplorerSnapshot
 import MultipeerConnectivity
 
-class SessionHandler: NSObject {
+protocol SessionHandlerProtocol {
+    func start()
+}
+
+class SessionHandler: NSObject, SessionHandlerProtocol {
     private let peer: MCPeerID
     private var session: MCSession?
     private var mcServiceBrowser: MCNearbyServiceBrowser

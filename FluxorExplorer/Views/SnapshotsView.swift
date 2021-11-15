@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SnapshotsView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    @EnvironmentObject private var store: Store<AppState, AppEnvironment>
+    @ObservedObject var store: Store<AppState, AppEnvironment>
     @StoreValue(FluxorExplorerApp.store, Selectors.getSelectedPeerId) private var peerId
     @StoreValue(FluxorExplorerApp.store, Selectors.getSelectedPeerSnapshots) private var snapshots
 

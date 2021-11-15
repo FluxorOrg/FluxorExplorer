@@ -13,12 +13,12 @@ let appReducer = Reducer<AppState>(
     ReduceOn(Actions.peerDisconnected) { state, action in
         state.peers.removeValue(forKey: action.payload)
     },
-    ReduceOn(Actions.selectPeer) {state, action in
-        state.selectedPeer = action.payload
+    ReduceOn(Actions.selectPeer) { state, action in
+        state.selectedPeerId = action.payload
     },
-    ReduceOn(Actions.deselectPeer) {state, action in
-        if state.selectedPeer == action.payload {
-            state.selectedPeer = nil
+    ReduceOn(Actions.deselectPeer) { state, action in
+        if state.selectedPeerId == action.payload {
+            state.selectedPeerId = nil
         }
     },
     ReduceOn(Actions.didReceiveSnapshot) { state, action in
@@ -26,11 +26,11 @@ let appReducer = Reducer<AppState>(
         snapshots.append(action.payload.snapshot)
         state.peers[action.payload.peerId]!.snapshots = snapshots
     },
-    ReduceOn(Actions.selectSnapshot) {state, action in
+    ReduceOn(Actions.selectSnapshot) { state, action in
         guard let peerId = action.payload.peerId else { return }
         state.peers[peerId]?.selectedSnaphot = action.payload.snapshot
     },
-    ReduceOn(Actions.deselectSnapshot) {state, action in
+    ReduceOn(Actions.deselectSnapshot) { state, action in
         guard let peerId = action.payload.peerId else { return }
         if state.peers[peerId]?.selectedSnaphot == action.payload.snapshot {
             state.peers[peerId]?.selectedSnaphot = nil

@@ -32,8 +32,7 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, peer: peer, didChange: .connected)
         // Then
         waitFor {
-            let action = self.store.stateChanges[0].action as! PeerConnectedAction
-            XCTAssertEqual(action.peer, self.peer)
+            XCTAssertEqual(self.store.dispatchedActions[0] as! AnonymousAction<MCPeerID>, Actions.peerConnected(payload: self.peer))
         }
     }
 
@@ -42,8 +41,7 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, peer: peer, didChange: .notConnected)
         // Then
         waitFor {
-            let action = self.store.stateChanges[0].action as! PeerDisconnectedAction
-            XCTAssertEqual(action.peer, self.peer)
+            XCTAssertEqual(self.store.dispatchedActions[0] as! AnonymousAction<MCPeerID>, Actions.peerDisconnected(payload: self.peer))
         }
     }
 
@@ -56,9 +54,9 @@ class SessionHandlerTests: XCTestCase {
         handler.session(session, didReceive: data, fromPeer: peer)
         // Then
         waitFor {
-            let action = self.store.stateChanges[0].action as! DidReceiveSnapshotAction
-            XCTAssertEqual(action.peer, self.peer)
-            XCTAssertEqual(action.snapshot, snapshot)
+            let action = self.store.dispatchedActions[0] as! AnonymousAction<(peerId: MCPeerID, snapshot: FluxorExplorerSnapshot)>
+            XCTAssertEqual(action.payload.peerId, self.peer)
+            XCTAssertEqual(action.payload.snapshot, snapshot)
         }
     }
 
@@ -101,10 +99,10 @@ private class MockBrowser: MCNearbyServiceBrowser {
     }
 }
 
-private struct TestState: Encodable {
+struct TestState: Encodable {
     let counter: Int
 }
 
-private struct TestAction: Action {
+struct TestAction: Action {
     let increment: Int
 }
