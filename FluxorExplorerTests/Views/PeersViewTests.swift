@@ -40,7 +40,7 @@ class PeersViewTests: ViewTestCase {
             XCTAssertEqual(try listElements.navigationLink($0).labelView().text().string(), peers[$0].name)
         }
     }
-    
+
     func testPeerSelection() throws {
         // Given
         let peerId = MCPeerID(displayName: "Some id")
